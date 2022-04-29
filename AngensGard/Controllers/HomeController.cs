@@ -1,4 +1,5 @@
 ﻿using AngensGard.Models;
+using AngensGard.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,15 +12,16 @@ namespace AngensGard.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IDbRepository _repo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IDbRepository repo)
         {
-            _logger = logger;
+            _repo = repo;
         }
 
         public IActionResult Index()
         {
+            var order = _repo.GetOrderById(1);
             return View();
         }
 
@@ -27,6 +29,8 @@ namespace AngensGard.Controllers
         {
             return View();
         }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
