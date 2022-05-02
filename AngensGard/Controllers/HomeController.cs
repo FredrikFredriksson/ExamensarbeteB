@@ -1,4 +1,5 @@
 ﻿using AngensGard.Models;
+using AngensGard.Models.ViewModels;
 using AngensGard.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -21,7 +22,11 @@ namespace AngensGard.Controllers
 
         public IActionResult Index()
         {
-            var order = _repo.GetOrderById(1);
+            return View();
+        }
+
+        public IActionResult AddOrder(OrderViewModel order)
+        {
             return View();
         }
 

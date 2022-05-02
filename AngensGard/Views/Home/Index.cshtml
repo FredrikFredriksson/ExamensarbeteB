@@ -1,8 +1,60 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model OrderViewModel
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div>
+    <form asp-controller="Home" asp-action="AddOrder" asp-route-id="@Model" method="post" enctype="multipart/form-data" id="orderForm">
+        <br />
+        <label for="name" id="customerName">Namn</label>
+        <input asp-for="Name" name="Name" placeholder="Enter your name here" class="form-control" id="addName" onfocus="this.value=''" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <br />
+
+        <label for="address" id="customerAddress">Adress</label>
+        <input asp-for="Address" name="Address" placeholder="Enter your address here" class="form-control" id="addAddress" onfocus="this.value=''" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+        <br />
+
+        <label for="zipcode" id="customerZipCode">Postnummer</label>
+        <input asp-for="ZipCode" name="ZipCode" placeholder="Enter your zipcode here" class="form-control" id="addZipCode" onfocus="this.value=''" />
+        <span asp-validation-for="ZipCode" class="text-danger"></span>
+        <br />
+
+        <label for="city" id="customerCity">Ort</label>
+        <input asp-for="City" name="City" placeholder="Enter your city here" class="form-control" id="addCity" onfocus="this.value=''" />
+        <span asp-validation-for="City" class="text-danger"></span>
+        <br />
+
+        <label for="phonenumber" id="customerPhoneNumber">Telefonnummer</label>
+        <input asp-for="PhoneNumber" name="PhoneNumber" placeholder="Enter your phonenumber here" class="form-control" id="addPhoneNumber" onfocus="this.value=''" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        <br />
+
+        <label for="email" id="customeremail">E-postadress</label>
+        <input asp-for="Email" name="Email" placeholder="Enter your email here" class="form-control" id="addEmail" onfocus="this.value=''" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+        <br />
+
+        <label for="sacks" id="customersacks">Antal säckar</label>
+        <input asp-for="Sacks" name="Sacks" placeholder="Enter amount of sacks here" class="form-control" id="addSacks" onfocus="this.value=''" />
+        <span asp-validation-for="Sacks" class="text-danger"></span>
+        <br />
+
+
+        <label for="radiobutton1" id="lblradio1">Hemleverans</label>
+        <input id="RadioButton1" type="radio" asp-for="Delivery" name="Delivery" class="form-control" value="Hemleverans" />
+
+        <label for="radiobutton2" id="lblradio2">Hämta själv</label>
+        <input id="RadioButton2" type="radio" asp-for="Delivery" name="Delivery" class="form-control" value="Hämta själv" />Hämta själv
+
+
+        <button type="submit" class="btn-primary">Gå vidare</button>
+
+
+    </form>
 </div>

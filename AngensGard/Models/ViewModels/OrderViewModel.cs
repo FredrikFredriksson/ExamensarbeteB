@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AngensGard.Models.Pocos
+namespace AngensGard.Models.ViewModels
 {
-    public class Order
+    public class OrderViewModel
     {
-        [Required]
         public int Id { get; set; }
         public string OrderNumber { get; set; }
         public string Name { get; set; }
@@ -21,5 +19,12 @@ namespace AngensGard.Models.Pocos
         public string Delivery { get; set; }
         public string Date { get; set; }
         public string Interval { get; set; }
+
+
+
+        //lägga metod för att tilldela ordernummer här 
+
+        
+
     }
 }

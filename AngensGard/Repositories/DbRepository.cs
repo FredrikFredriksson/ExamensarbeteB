@@ -18,10 +18,10 @@ namespace AngensGard.Repositories
 
         //Hämtar en order från databasen
         //Hitta med ordernummer istället för id?
-        public Order GetOrderById(int id)
-        {
-            var order = _db.Orders.Find(id);
-            return order;
-        }
+        //public Order GetOrderById(int id)
+        //{
+        //    var order = _db.Orders.Find(id);
+        //    return order;
+        //}
     }
 }
