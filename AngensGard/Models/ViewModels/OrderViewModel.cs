@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AngensGard.Data;
+using AngensGard.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +9,8 @@ namespace AngensGard.Models.ViewModels
 {
     public class OrderViewModel
     {
+        private readonly AppDbContext dbRepo; 
+
         public int Id { get; set; }
         public string OrderNumber { get; set; }
         public string Name { get; set; }
@@ -23,6 +27,19 @@ namespace AngensGard.Models.ViewModels
 
 
         //lägga metod för att tilldela ordernummer här 
+
+        private void GenerateOrderNumber()
+        {
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
         
 

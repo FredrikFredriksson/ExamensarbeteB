@@ -22,12 +22,14 @@ namespace AngensGard.Controllers
 
         public IActionResult Index()
         {
+            _repo.RemoveOrder(1);
             return View();
         }
 
         public IActionResult AddOrder(OrderViewModel order)
         {
-            return View();
+            _repo.SaveOrder(order);
+            return RedirectToAction("index");
         }
 
         public IActionResult Privacy()
