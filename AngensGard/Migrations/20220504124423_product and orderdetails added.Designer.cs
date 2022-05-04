@@ -3,18 +3,40 @@ using System;
 using AngensGard.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AngensGard.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220504124423_product and orderdetails added")]
+    partial class productandorderdetailsadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.16");
+
+            modelBuilder.Entity("AngensGard.Models.Pocos.Delivery", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Interval")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsHomeDelivery")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Delivery");
+                });
 
             modelBuilder.Entity("AngensGard.Models.Pocos.Order", b =>
                 {
@@ -62,6 +84,9 @@ namespace AngensGard.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("DeliveryId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Price")
                         .HasColumnType("INTEGER");
 
@@ -72,6 +97,8 @@ namespace AngensGard.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DeliveryId");
 
                     b.HasIndex("ProductId");
 
@@ -106,9 +133,15 @@ namespace AngensGard.Migrations
 
             modelBuilder.Entity("AngensGard.Models.Pocos.OrderDetail", b =>
                 {
+                    b.HasOne("AngensGard.Models.Pocos.Delivery", "Delivery")
+                        .WithMany()
+                        .HasForeignKey("DeliveryId");
+
                     b.HasOne("AngensGard.Models.Pocos.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
+
+                    b.Navigation("Delivery");
 
                     b.Navigation("Product");
                 });

@@ -16,10 +16,9 @@ namespace AngensGard.Models.Pocos
         public string ZipCode { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
-        public int Sacks { get; set; }
         public string Email { get; set; }
-        public string Delivery { get; set; }
-        public string Date { get; set; }
-        public string Interval { get; set; }
+        public string OrderDate { get; set; }
+        public OrderDetail OrderDetail { get; set; }
+
     }
 }

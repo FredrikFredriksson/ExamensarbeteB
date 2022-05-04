@@ -1,4 +1,5 @@
 ﻿using AngensGard.Models;
+using AngensGard.Models.Pocos;
 using AngensGard.Models.ViewModels;
 using AngensGard.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -22,14 +23,24 @@ namespace AngensGard.Controllers
 
         public IActionResult Index()
         {
-            _repo.RemoveOrder(1);
             return View();
         }
 
-        public IActionResult AddOrder(OrderViewModel order)
+        public IActionResult ConfirmOrder(OrderViewModel order)
         {
+            //hårdkodat in produkten björkved
+            order.Product = _repo.GetProductById(1);
             _repo.SaveOrder(order);
-            return RedirectToAction("index");
+            return View(order);
+        }
+
+        public IActionResult OrderOverview(OrderViewModel order)
+        {
+            //Ska inte ligga här, price borde sättas i viewmodellen och produkten är hårdkodad
+            order.Product = _repo.GetProductById(1);
+            order.Price = order.SetPrice();
+
+            return View(order);
         }
 
         public IActionResult Privacy()
