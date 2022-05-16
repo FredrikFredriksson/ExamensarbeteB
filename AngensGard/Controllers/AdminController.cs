@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AngensGard.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         public IActionResult Index()
