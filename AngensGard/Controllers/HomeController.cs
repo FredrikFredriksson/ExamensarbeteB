@@ -28,17 +28,43 @@ namespace AngensGard.Controllers
 
         public IActionResult ConfirmOrder(OrderViewModel order)
         {
+
+            for (int i = 0; i < order.Quantity; i++)
+            {
+                var product = _repo.GetProductById(order.ProductId);
+                order.OrderDetails.Products.Add(product);
+            }
+            if (order.IsHomeDelivery)
+            {
+                var delivery = _repo.GetProductById(3);
+                order.OrderDetails.Products.Add(delivery);
+            }
+
+            order.OrderDetails.TotalPrice = order.OrderDetails.CalculateTotalPrice();
+
             //hårdkodat in produkten björkved
-            order.Product = _repo.GetProductById(1);
+            //order.Product = _repo.GetProductById(1);
             _repo.SaveOrder(order);
             return View(order);
         }
 
-        public IActionResult OrderOverview(OrderViewModel order)
+        public IActionResult Overview(OrderViewModel order)
         {
+            for (int i = 0; i < order.Quantity; i++)
+            {
+                var product = _repo.GetProductById(order.ProductId);
+                order.OrderDetails.Products.Add(product);
+            }
+            if (order.IsHomeDelivery)
+            {
+                var delivery = _repo.GetProductById(3);
+                order.OrderDetails.Products.Add(delivery);
+            }
+
+            order.OrderDetails.TotalPrice = order.OrderDetails.CalculateTotalPrice();
             //Ska inte ligga här, price borde sättas i viewmodellen och produkten är hårdkodad
-            order.Product = _repo.GetProductById(1);
-            order.Price = order.SetPrice();
+            //order.Product = _repo.GetProductById(1);
+            
 
             return View(order);
         }

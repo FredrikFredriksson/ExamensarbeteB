@@ -4,6 +4,7 @@ using AngensGard.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,8 +34,22 @@ namespace AngensGard
             services.AddScoped<IApiClient, ApiClient>();
 
             services.AddDbContext<AppDbContext>(options => options.UseSqlite(connection));
-            services.AddControllersWithViews();
 
+            services.AddDbContext<LoginDbContext>(options => options.UseSqlite(connection));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<LoginDbContext>();
+
+            services.Configure<IdentityOptions>(o =>
+            {
+                o.Password.RequireDigit = false;
+                o.Password.RequiredLength = 5;
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequireLowercase = false;
+                o.Password.RequireUppercase = false;
+            });
+
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +70,7 @@ namespace AngensGard
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

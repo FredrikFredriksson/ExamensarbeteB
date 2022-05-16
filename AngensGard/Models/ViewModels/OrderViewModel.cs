@@ -20,40 +20,34 @@ namespace AngensGard.Models.ViewModels
         public string Email { get; set; }
         public string OrderDate { get; set; }
         public bool IsHomeDelivery { get; set; }
-        public Product Product { get; set; }
-        public int Price { get; set; }
         public int Quantity { get; set; }
+        public string Payment { get; set; }
+        public int ProductId { get; set; }
+        public OrderDetailsViewModel OrderDetails { get; set; }
 
-
-
-
-        public int SetPrice()
+        public OrderViewModel()
         {
-            int price = 0;
-            price += (Product.Price * Quantity);
-            if (IsHomeDelivery)
-            {
-                price += 250;
-            }
-
-            return price;
+            OrderDetails = new OrderDetailsViewModel();
+            SetDate();
         }
-
-
 
         private void SetDate()
         {
             OrderDate = DateTime.Now.ToString();
         }
 
-        public OrderViewModel()
-        {
-            SetDate();
-            
-        }
+
+
         //lägga metod för att tilldela ordernummer här 
 
+        public string GenerateOrderNumber(OrderViewModel order)
+        {
+            Random random = new Random();
+            string orderNumber = order.OrderDate + random.Next(1, 99999).ToString();
 
+            return orderNumber;
+
+        }
 
 
 

@@ -3,14 +3,16 @@ using System;
 using AngensGard.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AngensGard.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220506120026_updated tables")]
+    partial class updatedtables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,13 +109,13 @@ namespace AngensGard.Migrations
             modelBuilder.Entity("AngensGard.Models.Pocos.Product", b =>
                 {
                     b.HasOne("AngensGard.Models.Pocos.OrderDetail", null)
-                        .WithMany("Products")
+                        .WithMany("Product")
                         .HasForeignKey("OrderDetailId");
                 });
 
             modelBuilder.Entity("AngensGard.Models.Pocos.OrderDetail", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }

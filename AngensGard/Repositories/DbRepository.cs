@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace AngensGard.Repositories
 {
@@ -14,8 +15,10 @@ namespace AngensGard.Repositories
 
         private List<Product> _products = new List<Product>
         {
-            new Product { Name = "Björkved 1m²", Price = 650},
-            new Product { Name = "Blandved 1m²", Price = 600}
+            new Product { Name = "Björkved 1m², säck", Price = 650},
+            new Product { Name = "Björkved 10m², container", Price = 5500},
+            new Product { Name = "Hemkörning", Price = 250},
+            new Product { Name = "Björkved 15m², container", Price = 8250}
         };
 
         public DbRepository(AppDbContext db)
@@ -31,6 +34,16 @@ namespace AngensGard.Repositories
                 _db.AddRange(_products);
                 _db.SaveChanges();
             }
+        }
+
+     
+
+        public OrderDetail GetOrderDetailsById(int id)
+        {
+            var data = _db.OrderDetails.Where(x => x.Id == id)
+                .Include(x => x.Products)
+                .FirstOrDefault();        
+            return data;
         }
 
         /// <summary>
@@ -51,12 +64,17 @@ namespace AngensGard.Repositories
                 OrderDate = RegisteredOrder.OrderDate,
                 OrderDetail = new OrderDetail()
                 {
-                    Price = RegisteredOrder.Price,
-                    Product = GetProductById(RegisteredOrder.Product.Id),
-                    Quantity = RegisteredOrder.Quantity
+                    //Product = GetProductById(RegisteredOrder.Product.Id),
+                    Quantity = RegisteredOrder.Quantity,
+                    Price = RegisteredOrder.OrderDetails.TotalPrice,
+                    Products = new List<Product>()
                 }
-                
             };
+
+            foreach (var p in RegisteredOrder.OrderDetails.Products)
+            {
+                order.OrderDetail.Products.Add(p);
+            }
             await _db.AddAsync(order);
             _db.SaveChanges();
         }
@@ -70,7 +88,7 @@ namespace AngensGard.Repositories
         {
             var order = _db.Orders.Find(id);
                 
-            return order;   
+            return order;    
         }
 
 
@@ -92,6 +110,15 @@ namespace AngensGard.Repositories
             _db.SaveChanges();
         }
 
+        /// <summary>
+        /// Updates an order
+        /// </summary>
+        /// <param name="order"></param>
+        public void UpdateOrder(Order order)
+        {
+            _db.Orders.Add(order);
+            _db.SaveChanges();
+        }
 
 
         //Hämtar en order från databasen
