@@ -1,0 +1,32 @@
+﻿@model Order
+
+<h1>Order</h1>
+<br />
+<h3>Ordernummer: @Model.Id</h3>
+<br />
+
+<label asp-for="Name">@Model.Name</label>
+<br />
+<label asp-for="Address">@Model.Address</label>
+<br />
+<label asp-for="ZipCode">@Model.ZipCode</label>, <label asp-for="City">@Model.City</label>
+<br />
+<label asp-for="PhoneNumber">@Model.PhoneNumber</label>
+<br />
+<label asp-for="Email">@Model.Email</label>
+<br />
+<table>
+    <tr>
+        <th>Produkt</th>
+        <th>Pris</th>
+    </tr>
+    @foreach (var p in Model.OrderDetail.Products)
+    {
+        <tr>
+            <td>@p.Name</td>
+            <td>@p.Price</td>
+        </tr>
+    }  
+</table>
+
+

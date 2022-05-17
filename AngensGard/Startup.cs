@@ -49,6 +49,9 @@ namespace AngensGard
                 o.Password.RequireUppercase = false;
             });
 
+            //Om man vill ha policy
+            //services.AddAuthorization(o => o.AddPolicy("AdminsOnly", policy => policy.RequireClaim(""))
+
             services.AddControllersWithViews();
         }
 

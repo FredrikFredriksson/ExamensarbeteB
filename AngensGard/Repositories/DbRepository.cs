@@ -36,14 +36,21 @@ namespace AngensGard.Repositories
             }
         }
 
-     
+        public List<Order> GetListOfOrders()
+        {
+            var data = _db.Orders
+                .Include(x => x.OrderDetail)
+                .ThenInclude(x => x.Products);
+
+            return data.ToList();
+        }
 
         public OrderDetail GetOrderDetailsById(int id)
         {
             var data = _db.OrderDetails.Where(x => x.Id == id)
-                .Include(x => x.Products)
-                .FirstOrDefault();        
-            return data;
+                .Include(x => x.Products);
+                        
+            return data.FirstOrDefault();
         }
 
         /// <summary>
@@ -59,7 +66,7 @@ namespace AngensGard.Repositories
                 Address = RegisteredOrder.Address,
                 City = RegisteredOrder.City,
                 PhoneNumber = RegisteredOrder.PhoneNumber,
-                ZipCode = RegisteredOrder.City,
+                ZipCode = RegisteredOrder.ZipCode,
                 Email = RegisteredOrder.Email,
                 OrderDate = RegisteredOrder.OrderDate,
                 OrderDetail = new OrderDetail()
@@ -84,18 +91,20 @@ namespace AngensGard.Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns>order</returns>
-        public Order GetOrderById(int id)
+        public Order GetOrderById(int Id)
         {
-            var order = _db.Orders.Find(id);
+            var data = _db.Orders.Where(x => x.Id == Id)
+                .Include(x => x.OrderDetail)
+                .ThenInclude(x => x.Products);
                 
-            return order;    
+            return data.FirstOrDefault();    
         }
 
 
-        public Product GetProductById(int id)
+        public Product GetProductById(int Id)
         {
-            var product = _db.Products.Find(id);
-            return product;
+            var data = _db.Products.Where(x => x.Id == Id);
+            return data.FirstOrDefault();
         }
         
         /// <summary>

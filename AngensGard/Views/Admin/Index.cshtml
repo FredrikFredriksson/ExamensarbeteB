@@ -1,1 +1,23 @@
-﻿<h3>Administratörssidan</h3>
+﻿@model AdminViewModel
+
+<h3>Administratörssidan</h3>
+
+
+<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Namn</th>
+        <th>Datum</th>
+        <th>Adress</th>
+    </tr>
+
+    @foreach (var order in Model.Orders)
+    {
+        <tr>
+            <td onclick="location.href = '@(Url.Action("OrderOverview", "Admin", new { Id = order.Id}))'">@order.Id</td>
+            <td>@order.Name</td>
+            <td>@order.OrderDate</td>
+            <td>@order.Address</td>
+        </tr>
+    }
+</table>
