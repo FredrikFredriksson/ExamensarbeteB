@@ -104,10 +104,32 @@ ul {
     text-decoration: underline;
 }
 
-.footer {
+/*.footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
+    line-height: 60px;*/ /* Vertically center the text there */
+/*}*/
+
+
+.div-container .div-main .div-pagination li {
+    display: inline;
+    padding: 3px;
 }
+
+    .div-container .div-main .div-pagination .pagination-container .pagination {
+        padding-left: 0;
+    }
+
+    .main-content form {
+        float: right;
+    }
+    .main-content form .buttonLink{
+        background: none !important;
+        border: none;
+        padding: 0 !important;
+        font: inherit;
+        border-bottom: 1px solid #333;
+        cursor: pointer;
+    }

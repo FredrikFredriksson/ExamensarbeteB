@@ -1,5 +1,4 @@
 ﻿
-
 @model AdminViewModel
 
 <h3>Administratörssidan</h3>
@@ -21,11 +20,26 @@
             <td>@order.OrderDate</td>
             <td>@order.Address</td>
             <td>
-
                 @Html.ActionLink("Ändra", "EditOrder", "Admin", new { id = order.Id })
                 @Html.ActionLink("Detaljer", "OrderDetails", "Admin", new { id = order.Id })
-                @Html.ActionLink("Ta bort", "DeleteOrder", "Admin", new { id = order.Id })
+                <!---Dont know why I need true or false as the 5th argument, but it works-->
+                @using (Html.BeginForm("DeleteOrder", "Admin", new { id = order.Id }, FormMethod.Post, true, new { onsubmit = "return confirm('Är du säker på att du vill ta bort ordern?');" }))
+                {
+                    <input type = "submit" value = "Ta bort" class="buttonLink" />
+                }
+
+
+                @*@Html.ActionLink("Ta bort", "DeleteOrder", "Admin", new { id = order.Id })*@
+
             </td>
         </tr>
     }
 </table>
+
+@*<div class="clear"></div>
+    Page @(Model.PageCoutn < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    <div class="divpagination">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>*@
+
+
