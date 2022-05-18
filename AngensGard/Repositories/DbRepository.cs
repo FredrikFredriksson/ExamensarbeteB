@@ -125,7 +125,7 @@ namespace AngensGard.Repositories
         /// <param name="order"></param>
         public void UpdateOrder(Order order)
         {
-            _db.Orders.Add(order);
+            _db.Entry(order).State = EntityState.Modified;      
             _db.SaveChanges();
         }
 

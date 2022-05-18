@@ -14,5 +14,6 @@ namespace AngensGard.Repositories
         Product GetProductById(int id);
         void RemoveOrder(int id);
         void SaveOrder(OrderViewModel RegisteredOrder);
+        void UpdateOrder(Order order);
     }
 }

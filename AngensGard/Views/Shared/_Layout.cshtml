@@ -11,11 +11,12 @@
     <div class="div-container">
         <div class="div-header">
             Ängens Gård
-        </div>
+        </div><!--div-header-->
+        <div class="clear"></div>
         <div class="div-topmenu">
             <ul>
                 <li>
-                    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Hem</a>
                 </li>
                 <li>
                     <a asp-area="" asp-controller="Order" asp-action="Index">Beställ ved</a>
@@ -32,31 +33,49 @@
                     }
                 }
             </ul>
-        </div>
+        </div><!-----div-topmenu-->
+        <div class="clear"></div>
+
         @{ if (User.IsInRole("Admin"))
             {
+
                 <div class="div-left">
-                    <div class="Category-title"></div><!------Category-title---->
-                    <div class="Category-list">
+                    <div class="admin-menu">Administratörsmeny</div><!------Category-title---->
+                    <div class="admin-menu-list">
                         <ul>
                             <li><a href="#">Orderöversikt</a></li>
                             <li><a href="#">Lager</a></li>
                             <li><a href="#">Test</a></li>
                         </ul>
                     </div><!----Category-List----->
-                </div>
-
+                </div><!--div-left-->
+                
             }
         }
+
+        <div class="div-main">
+            <div class="main-content">
+                @RenderBody()
+            </div><!---Main-content-->
+        </div><!---div main-->
+        <div class="clear"></div>
+        <div class="div-footer">
+            <p>Ängens gård</p>
+            <p>Epost: <a href="mailto:angenbararp@gmail.com">Angensgard</a></p>
+            <p>Instagram: <a href="https://www.instagram.com/bararpsloge/">Bararpsloge</a></p>
+        </div>
+
     </div>
+    
 
-
-    <div class="container">
+    @*<div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
+    </div>*@
 
+
+    <div class="clear"></div>
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - AngensGard - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

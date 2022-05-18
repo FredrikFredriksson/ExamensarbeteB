@@ -1,4 +1,6 @@
-﻿@model AdminViewModel
+﻿
+
+@model AdminViewModel
 
 <h3>Administratörssidan</h3>
 
@@ -14,10 +16,16 @@
     @foreach (var order in Model.Orders)
     {
         <tr>
-            <td onclick="location.href = '@(Url.Action("OrderOverview", "Admin", new { Id = order.Id}))'">@order.Id</td>
+            <td>@order.Id</td>
             <td>@order.Name</td>
             <td>@order.OrderDate</td>
             <td>@order.Address</td>
+            <td>
+
+                @Html.ActionLink("Ändra", "EditOrder", "Admin", new { id = order.Id })
+                @Html.ActionLink("Detaljer", "OrderDetails", "Admin", new { id = order.Id })
+                @Html.ActionLink("Ta bort", "DeleteOrder", "Admin", new { id = order.Id })
+            </td>
         </tr>
     }
 </table>

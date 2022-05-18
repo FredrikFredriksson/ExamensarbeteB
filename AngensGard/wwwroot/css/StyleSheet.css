@@ -24,18 +24,26 @@ ul {
     }
 
     .div-container .div-topmenu {
-        background-color: #ffffff
+        background-color: #ffffff;
+        padding: 20px;
     }
+        .div-container .div-topmenu ul {
+            margin: 0;
+            
+        }
 
         .div-container .div-topmenu ul li {
             float: left;
+            padding: 0 10px 0 10px;
+            margin-top: -7px;
+            
         }
 
             .div-container .div-topmenu ul li a {
                 text-decoration: none;
                 color: black;
-                text-transform: uppercase;
-                padding: 0 10px 10px 0;
+                text-transform: uppercase;              
+                font-weight: bold;
             }
 
                 .div-container .div-topmenu ul li a:hover {
@@ -44,22 +52,57 @@ ul {
                 }
 
     .div-container .div-left {
+        float:left;
+        width: 15%;
+        border-right: 3px solid #ffffff;
+        margin-top: 5px;
     }
 
-        .div-container .div-left .category-title {
+        .div-container .div-left .admin-menu {
+            text-transform: uppercase;
+            background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 5px;
         }
 
-        .div-container .div-left .category-list {
+        .div-container .div-left .admin-menu-list {
         }
 
-            .div-container .div-left .category-list ul li {
+            .div-container .div-left .admin-menu-list ul li {
             }
 
-                .div-container .div-left .category-list ul li a {
+                .div-container .div-left .admin-menu-list ul li a {
+                    text-decoration: none;
+                    line-height: 25px;
                 }
 
-                    .div-container .div-left .category-list ul li a:hover {
+                    .div-container .div-left .admin-menu-list ul li a:hover {
+                        background-color: black;
+                        color: #ffffff
                     }
+.div-container -div-main{
+    float: left;
+    width: 84%;
+}
+.div-container -div-main .div-main-content{
+    float: left;
+}
+
+.div-container .div-footer{
+    background-color: #333;
+    color: #ffffff;
+    padding: 5px 10px 5px 20px;
+    line-height: 10px;
+}
+.div-container .div-footer a{
+    color: #ffffff;
+    text-decoration: none;
+
+}
+.div-container .div-footer a:hover{
+    text-decoration: underline;
+}
 
 .footer {
     position: absolute;
