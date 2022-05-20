@@ -16,12 +16,17 @@ namespace AngensGard.Models.Pocos
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string PaymentMethod { get; set; }
+        public int ProductQuantity { get; set; }
 
         //DatabaseGenerated som annotation på datumet kanske? Kolla föreläsningen ASP.net Core identity 6 min in med erik 
         public string OrderDate { get; set; }
+        public int TotalPrice { get; set; }
+
+        public Product Product { get; set; }
 
         //Göra denna till virtual? Alltså så att det blir foreign key i databasen
-        public OrderDetail OrderDetail { get; set; }
+        //public OrderDetail OrderDetail { get; set; }
 
     }
 }

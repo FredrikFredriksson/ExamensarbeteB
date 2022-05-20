@@ -37,7 +37,7 @@
 
        
 
-        <label for="product">Välj produkt</label><br />
+        <@*label for="product">Välj produkt</label><br />
         <select asp-for="@Model.OrderDetail.Products">
             <option value="1">Björkved (1m² 650SEK, säck)</option>
             <option value="2">Björkved (10m² 5500SEK, container)</option>
@@ -48,7 +48,7 @@
         <label for="quantity" id="customeremail">Antal</label>
         <input asp-for="@Model.OrderDetail.Quantity" name="Quantity" class="form-control" id="addQuantity" onfocus="this.value=''" />
         <span asp-validation-for="@Model.OrderDetail.Quantity" class="text-danger"></span>
-        <br />
+        <br />*@
 
         @*<label for="payment" id="customeremail">Betalningsmetod</label><br />
         <select asp-for="@Model.Order Payment" name="Payment">

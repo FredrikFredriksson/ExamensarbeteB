@@ -23,25 +23,14 @@ namespace AngensGard.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
 
         public IActionResult ConfirmOrder(OrderViewModel order)
         {
-
-            for (int i = 0; i < order.Quantity; i++)
-            {
-                var product = _repo.GetProductById(order.ProductId);
-                order.OrderDetails.Products.Add(product);
-            }
-            if (order.IsHomeDelivery)
-            {
-                var delivery = _repo.GetProductById(3);
-                order.OrderDetails.Products.Add(delivery);
-            }
-
-            order.OrderDetails.TotalPrice = order.OrderDetails.CalculateTotalPrice();
-
+            order.Product = _repo.GetProductById(order.ProductId);
+            
             //hårdkodat in produkten björkved
             //order.Product = _repo.GetProductById(1);
             _repo.SaveOrder(order);
@@ -50,18 +39,28 @@ namespace AngensGard.Controllers
 
         public IActionResult Overview(OrderViewModel order)
         {
-            for (int i = 0; i < order.Quantity; i++)
-            {
-                var product = _repo.GetProductById(order.ProductId);
-                order.OrderDetails.Products.Add(product);
-            }
+            order.Product = _repo.GetProductById(order.ProductId);
+
             if (order.IsHomeDelivery)
             {
-                var delivery = _repo.GetProductById(3);
-                order.OrderDetails.Products.Add(delivery);
+                order.TotalPrice += 250;
             }
 
-            order.OrderDetails.TotalPrice = order.OrderDetails.CalculateTotalPrice();
+            order.ProductPrice = order.Product.Price * order.Quantity;
+            order.TotalPrice += order.ProductPrice;
+
+            //for (int i = 0; i < order.Quantity; i++)
+            //{
+            //    var product = _repo.GetProductById(order.ProductId);
+            //    order.OrderDetails.Products.Add(product);
+            //}
+            //if (order.IsHomeDelivery)
+            //{
+            //    var delivery = _repo.GetProductById(3);
+            //    order.OrderDetails.Products.Add(delivery);
+            //}
+
+            //order.OrderDetails.TotalPrice = order.OrderDetails.CalculateTotalPrice();
             //Ska inte ligga här, price borde sättas i viewmodellen och produkten är hårdkodad
             //order.Product = _repo.GetProductById(1);
 

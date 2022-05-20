@@ -30,18 +30,26 @@
 <table>
     <tr>
         <th>Produkt</th>
+        <th>Antal</th>
         <th>Pris</th>
     </tr>
-    @foreach (var p in Model.OrderDetails.Products)
+
+    <tr>
+        <td>@Model.Product.Name</td>
+        <td>@Model.Quantity</td>
+        <td>@Model.ProductPrice</td>
+    </tr>
+    @if (Model.IsHomeDelivery)
     {
-        <tr>
-            <td>@p.Name</td>
-            <td>@p.Price</td>
-        </tr>
+        <td>Hemkörning</td>
+        <td></td>
+        <td>250</td>
     }
+
     <tr>
         <td>Totalt</td>
-        <td>@Model.OrderDetails.TotalPrice</td>
+        <td></td>
+        <td>@Model.TotalPrice</td>
     </tr>
 </table>
 <br />
@@ -50,9 +58,9 @@
 
 
 
-<a href="@Url.Action("Index", "Home")">Gå tillbaka</a>
+<a href="@Url.Action("Index", "Order")">Gå tillbaka</a>
 
-<a href="@Url.Action("ConfirmOrder", "Home", @Model)">Beställ</a>
+<a href="@Url.Action("ConfirmOrder", "Order", @Model)">Beställ</a>
 
 
 

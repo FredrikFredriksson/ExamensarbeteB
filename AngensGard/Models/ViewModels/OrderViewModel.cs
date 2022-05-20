@@ -23,11 +23,14 @@ namespace AngensGard.Models.ViewModels
         public int Quantity { get; set; }
         public string Payment { get; set; }
         public int ProductId { get; set; }
-        public OrderDetailsViewModel OrderDetails { get; set; }
+        public int TotalPrice { get; set; }
+
+        public Product Product { get; set; }
+
+        public int ProductPrice { get; set; }
 
         public OrderViewModel()
-        {
-            OrderDetails = new OrderDetailsViewModel();
+        {           
             SetDate();
         }
 

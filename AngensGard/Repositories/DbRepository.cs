@@ -16,8 +16,7 @@ namespace AngensGard.Repositories
         private List<Product> _products = new List<Product>
         {
             new Product { Name = "Björkved 1m², säck", Price = 650},
-            new Product { Name = "Björkved 10m², container", Price = 5500},
-            new Product { Name = "Hemkörning", Price = 250},
+            new Product { Name = "Björkved 10m², container", Price = 5500},          
             new Product { Name = "Björkved 15m², container", Price = 8250}
         };
 
@@ -39,8 +38,7 @@ namespace AngensGard.Repositories
         public List<Order> GetListOfOrders()
         {
             var data = _db.Orders
-                .Include(x => x.OrderDetail)
-                .ThenInclude(x => x.Products);
+                .Include(x => x.Product);
 
             return data.ToList();
         }
@@ -69,19 +67,27 @@ namespace AngensGard.Repositories
                 ZipCode = RegisteredOrder.ZipCode,
                 Email = RegisteredOrder.Email,
                 OrderDate = RegisteredOrder.OrderDate,
-                OrderDetail = new OrderDetail()
-                {
-                    //Product = GetProductById(RegisteredOrder.Product.Id),
-                    Quantity = RegisteredOrder.Quantity,
-                    Price = RegisteredOrder.OrderDetails.TotalPrice,
-                    Products = new List<Product>()
-                }
+                Product = RegisteredOrder.Product,
+                TotalPrice = RegisteredOrder.TotalPrice,
+                PaymentMethod = RegisteredOrder.Payment,
+                ProductQuantity = RegisteredOrder.Quantity
             };
+            order.Product.StockQuantity -= RegisteredOrder.Quantity;
 
-            foreach (var p in RegisteredOrder.OrderDetails.Products)
-            {
-                order.OrderDetail.Products.Add(p);
-            }
+            //for (int i = 0; i < RegisteredOrder.OrderDetails.Products.Count; i++)
+            //{
+            //    if ()
+            //    {
+
+            //    }
+            //}
+
+            //foreach (var p in RegisteredOrder.OrderDetails.Products)
+            //{
+            //    order.Products.Add(p);
+            //}
+
+
             await _db.AddAsync(order);
             _db.SaveChanges();
         }
@@ -93,9 +99,8 @@ namespace AngensGard.Repositories
         /// <returns>order</returns>
         public Order GetOrderById(int Id)
         {
-            var data = _db.Orders.Where(x => x.Id == Id)
-                .Include(x => x.OrderDetail)
-                .ThenInclude(x => x.Products);
+            var data = _db.Orders.Where(x => x.Id == Id)                
+                .Include(x => x.Product);
                 
             return data.FirstOrDefault();    
         }

@@ -18,13 +18,14 @@
                 <th>Produkt</th>
                 <th>Pris</th>
             </tr>
-            @foreach (var p in Model.OrderDetail.Products)
+            
+            @*@foreach (var p in Model.OrderDetail.Products)
             {
                 <tr>
                     <td>@p.Name</td>
                     <td>@p.Price</td>
                 </tr>
-            }
+            }*@
         </table>
         <a href="@Url.Action("EditOrder", "Admin", @Model)">Ändra</a>
     </div>
