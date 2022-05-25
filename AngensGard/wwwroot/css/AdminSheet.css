@@ -65,8 +65,9 @@
     padding: 10px;
 }
 
-.card{
+.grid-container{
     display: grid;
+    gap: 1rem;
 }
 
        /* .content-table tbody tr.active-row {

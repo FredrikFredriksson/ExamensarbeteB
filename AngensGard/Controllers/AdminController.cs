@@ -25,6 +25,12 @@ namespace AngensGard.Controllers
         }
         public IActionResult Index()
         {
+            
+            return View();
+        }
+
+        public IActionResult Orders()
+        {
             var model = new AdminViewModel()
             {
                 Orders = _repo.GetListOfOrders()
@@ -34,9 +40,7 @@ namespace AngensGard.Controllers
 
         public IActionResult OrderDetails(int Id)
         {
-
             var model = _repo.GetOrderById(Id);
-
             return View(model);
         }
 
@@ -59,14 +63,14 @@ namespace AngensGard.Controllers
             order.TotalPrice += order.Product.Price * order.ProductQuantity;
             _repo.UpdateOrder(order);
 
-            return RedirectToAction("Index", "Admin", order);
+            return RedirectToAction("Orders", "Admin", order);
         }
 
         
         public IActionResult DeleteOrder(int id)
         {
             _repo.RemoveOrder(id);
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("Orders", "Admin");
         }
 
         //public PartialViewResult OrderListPartial(int? page)

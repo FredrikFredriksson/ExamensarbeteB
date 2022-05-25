@@ -1,55 +1,29 @@
 ﻿
-@model AdminViewModel
-
-<link href="~/css/AdminSheet.css" rel="stylesheet" />
-
-
-
-
-<table class="content-table">
-    <tr>
-        <th>Order Id</th>
-        <th>Namn</th>
-        <th>Datum</th>
-        <th>Adress</th>
-        <th>Betalningsmetod</th>
-        <th>Leveranssätt</th>
-        <th>Status</th>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
-
-    @foreach (var order in Model.Orders)
-    {
-        <tr>
-            <td>@order.Id</td>
-            <td>@order.Name</td>
-            <td>@order.OrderDate.ToString("dd/MM/yyyy")</td>
-            <td>@order.Address</td>
-            <td>@order.PaymentMethod</td>
-            <td>@order.Delivery</td>
-            <td>@order.OrderStatus</td>
-            <td class="table-links">
-                @Html.ActionLink("Ändra", "EditOrder", "Admin", new { id = order.Id })
-            </td>
-            <td class="table-links">
-                @Html.ActionLink("Detaljer", "OrderDetails", "Admin", new { id = order.Id })
-            </td>
-
-            <!---Dont know why I need true or false as the 5th argument, but it works-->
-            <td class="table-links">
-
-                @using (Html.BeginForm("DeleteOrder", "Admin", new { id = order.Id }, FormMethod.Post, true, new { onsubmit = "return confirm('Är du säker på att du vill ta bort ordern?');" }))
-                {
-                    <input type="submit" value="Ta bort" class="buttonLink" />
-                }
-
-            </td>
-        </tr>
-    }
-</table>
-
+<div class="grid-container">
+    <article class="admin-card">
+        <h3>10</h3>      
+        <button>Alla beställningar</button>
+    </article>
+    <article class="admin-card">
+        <h3>2</h3>        
+        <button>Obetalda beställningar</button>
+    </article>
+    <article class="admin-card">
+        <h3>5</h3>
+        <button>Pågående beställningar</button>
+    </article>
+    <article class="admin-card">
+        <h3>3</h3>        
+        <button>Färdiga beställningar</button>
+    </article>
+    <article class="admin-card">
+        <h3>Lagersaldo</h3>
+        <p>5st säckar björkved</p>
+        <p>10st 10m² container</p>
+        <p>20st 15m² container</p>
+        <button>Gå till lagersaldon</button>
+    </article>
+</div>
 @*<div class="clear"></div>
     Page @(Model.PageCoutn < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
     <div class="divpagination">

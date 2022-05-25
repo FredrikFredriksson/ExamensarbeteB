@@ -1,0 +1,47 @@
+﻿@model AdminViewModel
+
+<link href="~/css/AdminSheet.css" rel="stylesheet" />
+
+<table class="content-table">
+    <tr>
+        <th>Order Id</th>
+        <th>Namn</th>
+        <th>Datum</th>
+        <th>Adress</th>
+        <th>Betalningsmetod</th>
+        <th>Leveranssätt</th>
+        <th>Status</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var order in Model.Orders)
+    {
+        <tr>
+            <td>@order.Id</td>
+            <td>@order.Name</td>
+            <td>@order.OrderDate.ToString("dd/MM/yyyy")</td>
+            <td>@order.Address</td>
+            <td>@order.PaymentMethod</td>
+            <td>@order.Delivery</td>
+            <td>@order.OrderStatus</td>
+            <td class="table-links">
+                @Html.ActionLink("Ändra", "EditOrder", "Admin", new { id = order.Id })
+            </td>
+            <td class="table-links">
+                @Html.ActionLink("Detaljer", "OrderDetails", "Admin", new { id = order.Id })
+            </td>
+
+            <!---Dont know why I need true or false as the 5th argument, but it works-->
+            <td class="table-links">
+
+                @using (Html.BeginForm("DeleteOrder", "Admin", new { id = order.Id }, FormMethod.Post, true, new { onsubmit = "return confirm('Är du säker på att du vill ta bort ordern?');" }))
+                {
+                    <input type="submit" value="Ta bort" class="buttonLink" />
+                }
+
+            </td>
+        </tr>
+    }
+</table>
