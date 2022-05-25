@@ -24,7 +24,7 @@ namespace AngensGard.Models.ViewModels
         public string Payment { get; set; }
         public int ProductId { get; set; }
         public int TotalPrice { get; set; }
-
+        public string Delivery { get; set; }
         public Product Product { get; set; }
 
         public int ProductPrice { get; set; }

@@ -6,6 +6,7 @@
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
 }
 
     .content-table th {
@@ -16,7 +17,7 @@
     }
 
     .content-table th, content-table td {
-        padding: 12px 15px;  
+        padding: 12px 10px;
     }
 
     .content-table td a{
@@ -25,6 +26,7 @@
 
     .content-table tbody tr {
         border-bottom: 1px solid #dddddd;
+        text-align: left;
     }
 
         .content-table tbody tr:nth-of-type(2n+1) {
@@ -35,11 +37,37 @@
         border-bottom: 2px solid #8b9788;
     }
 
-    .buttonLink{
-        text-decoration: none;
-    }
-    
 
+.buttonLink {
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.content-table a, .buttonLink {
+    padding: 3px;
+    margin: 3px;
+    text-decoration: none;
+    color: black;
+    font: inherit !important;
+    font-weight: bolder !important;
+}
+
+
+    .content-table a:hover, .buttonLink:hover {
+        background-color: #8b9788;
+        color: #ffffff;
+    }
+
+.content-table td {
+    padding: 10px;
+}
+
+.card{
+    display: grid;
+}
 
        /* .content-table tbody tr.active-row {
             font-weight: bold;

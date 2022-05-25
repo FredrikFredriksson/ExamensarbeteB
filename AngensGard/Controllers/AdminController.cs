@@ -51,9 +51,15 @@ namespace AngensGard.Controllers
         [HttpPost]
         public IActionResult EditOrder(Order order)
         {
+            if (order.Delivery == "Hemleverans")
+            {
+                order.TotalPrice += 250;
+            }
+            order.Product = _repo.GetProductById(order.Product.Id);
+            order.TotalPrice += order.Product.Price * order.ProductQuantity;
             _repo.UpdateOrder(order);
 
-            return RedirectToAction("OrderDetails", "Admin", order);
+            return RedirectToAction("Index", "Admin", order);
         }
 
         

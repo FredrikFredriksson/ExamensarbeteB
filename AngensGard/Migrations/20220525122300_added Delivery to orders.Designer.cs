@@ -3,14 +3,16 @@ using System;
 using AngensGard.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AngensGard.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220525122300_added Delivery to orders")]
+    partial class addedDeliverytoorders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,9 +28,6 @@ namespace AngensGard.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("City")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Delivery")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")

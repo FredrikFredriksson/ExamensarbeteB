@@ -1,6 +1,91 @@
-﻿@model Order 
+﻿@model Order
 
-<div>
+<link href="~/css/OrderStyle.css" rel="stylesheet" />
+<form asp-controller="Admin" asp-action="EditOrder" asp-route-id="@Model" method="post" enctype="multipart/form-data" id="orderForm">
+    <fieldset>
+        <legend>Vedbeställning</legend>
+        <input type="hidden" value="@Model.Id" asp-for="Id" />
+        <input type="hidden" value="@Model.OrderDate" asp-for="OrderDate" />
+
+        <label for="Name" id="customerName">Namn</label>
+        <input asp-for="Name" name="Name" class="form-control" id="Name" value="@Model.Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+
+
+        <label for="Address" id="customerAddress">Adress</label>
+        <input asp-for="Address" name="Address" class="form-control" id="Address" value="@Model.Address" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+
+
+        <label for="ZipCode" id="customerZipCode">Postnummer</label>
+        <input asp-for="ZipCode" name="ZipCode" class="form-control" id="ZipCode" value="@Model.ZipCode" />
+        <span asp-validation-for="ZipCode" class="text-danger"></span>
+
+
+        <label for="City" id="customerCity">Ort</label>
+        <input asp-for="City" name="City" class="form-control" id="City" value="@Model.City" />
+        <span asp-validation-for="City" class="text-danger"></span>
+
+        <label for="Email" id="customeremail">E-postadress</label>
+        <input asp-for="Email" name="Email" class="form-control" id="Email" value="@Model.Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+
+        <label for="PhoneNumber" id="customerPhoneNumber">Telefonnummer</label>
+        <input asp-for="PhoneNumber" name="PhoneNumber" class="form-control" id="PhoneNumber" value="@Model.PhoneNumber.ToString()" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+
+        <label for="Product">Välj produkt</label>
+        <select asp-for="@Model.Product.Id" id="Product">
+            <option value="1">Björkved (1m² 650SEK, säck)</option>
+            <option value="2">Björkved (10m² 5500SEK, container)</option>
+            <option value="4">Björkved (15m² 8250SEK, container)</option>
+        </select>
+
+        <label for="Quantity" id="customeremail">Antal</label>
+        <input asp-for="ProductQuantity" value="@Model.ProductQuantity" />
+        <span asp-validation-for="ProductQuantity" class="text-danger"></span>
+
+
+        <label for="Payment" id="customeremail">Betalningsmetod</label>
+        <select asp-for="PaymentMethod" name="PaymentMethod" id="Payment" value="@Model.PaymentMethod">
+            <option value="Swish">Swish</option>
+            <option value="Bank Giro">Bank Giro</option>
+            <option value="Betala vid leverans">Betala vid leverans</option>
+        </select>
+
+        <label for="Status" id="OrderStatus">Status</label>
+        <select asp-for="OrderStatus" name="OrderStatus" id="Status">
+            <option value="Pågående">Pågående</option>
+            <option value="Obetald">Obetald</option>
+            <option value="Klar">Klar</option>
+        </select>
+        <br />
+
+        <div class="checks">
+            @Html.RadioButtonFor(m => m.Delivery, "Hemleverans")
+            <label for="radiobutton1" id="lblradio1">Hemleverans</label>
+
+            @Html.RadioButtonFor(m => m.Delivery, "Hämta själv")
+            <label for="radiobutton2" id="lblradio2">Hämta själv</label>
+        </div>
+
+      
+        @*<div class="checks">
+            @Html.RadioButtonFor(m => m.IsHomeDelivery, "true")
+            <label for="radiobutton1" id="lblradio1">Hemleverans</label>
+
+            @Html.RadioButtonFor(m => m.IsHomeDelivery, "false")
+            <label for="radiobutton2" id="lblradio2">Hämta själv</label>
+        </div>*@
+
+        <button type="submit" class="btn-primary">Spara</button>
+
+    </fieldset>
+</form>
+
+
+<!--<div>
     <form asp-controller="Admin" asp-action="EditOrder" asp-route-id="@Model" method="post" enctype="multipart/form-data" id="orderForm">
         <label for="Id" id="OrderId">Ordernummer: @Model.Id</label>
         <input asp-for="Id" type="hidden" value="@Model.Id" />
@@ -35,9 +120,9 @@
         <span asp-validation-for="Email" class="text-danger"></span>
         <br />
 
-       
 
-        <@*label for="product">Välj produkt</label><br />
+
+        <-->@*label for="product">Välj produkt</label><br />
         <select asp-for="@Model.OrderDetail.Products">
             <option value="1">Björkved (1m² 650SEK, säck)</option>
             <option value="2">Björkved (10m² 5500SEK, container)</option>
@@ -48,9 +133,7 @@
         <label for="quantity" id="customeremail">Antal</label>
         <input asp-for="@Model.OrderDetail.Quantity" name="Quantity" class="form-control" id="addQuantity" onfocus="this.value=''" />
         <span asp-validation-for="@Model.OrderDetail.Quantity" class="text-danger"></span>
-        <br />*@
-
-        @*<label for="payment" id="customeremail">Betalningsmetod</label><br />
+        <br />*@ @*<label for="payment" id="customeremail">Betalningsmetod</label><br />
         <select asp-for="@Model.Order Payment" name="Payment">
             <option value="Swish">Swish</option>
             <option value="Bank Giro">Bank Giro</option>
@@ -64,9 +147,9 @@
         <label for="radiobutton2" id="lblradio2">Hämta själv</label>
         @Html.RadioButtonFor(m => m.IsHomeDelivery, "false")*@
 
-        <br />
+        <!--<br />
         <button type="submit" class="btn-primary">Gå vidare</button>
 
 
     </form>
-</div>
+</div>-->

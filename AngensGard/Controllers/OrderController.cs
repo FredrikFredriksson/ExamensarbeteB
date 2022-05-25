@@ -43,7 +43,12 @@ namespace AngensGard.Controllers
 
             if (order.IsHomeDelivery)
             {
+                order.Delivery = "Hemleverans";
                 order.TotalPrice += 250;
+            }
+            else
+            {
+                order.Delivery = "Hämta själv";
             }
 
             order.ProductPrice = order.Product.Price * order.Quantity;

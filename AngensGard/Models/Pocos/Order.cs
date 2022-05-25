@@ -18,9 +18,8 @@ namespace AngensGard.Models.Pocos
         public string Email { get; set; }
         public string PaymentMethod { get; set; }
         public int ProductQuantity { get; set; }
-
+        public string Delivery { get; set; }
         //DatabaseGenerated som annotation på datumet kanske? Kolla föreläsningen ASP.net Core identity 6 min in med erik 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime OrderDate { get; set; }
         public int TotalPrice { get; set; }
 

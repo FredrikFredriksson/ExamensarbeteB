@@ -11,6 +11,5 @@ namespace AngensGard.Models.ViewModels
     {
         public List<Order> Orders { get; set; }
 
-       
     }
 }
