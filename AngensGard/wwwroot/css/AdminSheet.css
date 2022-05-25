@@ -65,9 +65,17 @@
     padding: 10px;
 }
 
-.grid-container{
+.grid-container {
     display: grid;
     gap: 1rem;
+}
+
+.admin-card {
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    background-color: #8b9788;
+    color: #ffffff;
 }
 
        /* .content-table tbody tr.active-row {
