@@ -86,7 +86,7 @@ namespace AngensGard.Controllers
             return View(model);
         } 
 
-
+        [AllowAnonymous]
         public async Task<IActionResult> CreateRoles()
         {
             var role = new IdentityRole("Admin");
@@ -95,7 +95,7 @@ namespace AngensGard.Controllers
             {
                 var result = await _roleManager.CreateAsync(role);
             }
-            return View();
+            return RedirectToAction("Index", "Admin");
         }
 
         public async Task<IActionResult> Roles()
@@ -105,10 +105,6 @@ namespace AngensGard.Controllers
             await _signInManager.SignInAsync(user, isPersistent: false);
             return RedirectToAction("Index", "Admin");
         }
-
-
-
-
 
     }
 }

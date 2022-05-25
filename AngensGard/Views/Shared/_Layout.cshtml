@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AngensGard</title>
-    <link rel="stylesheet" href="~/css/StyleSheet.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
 </head>
 <body>
     <div class="div-container">
@@ -14,44 +14,58 @@
         </div><!--div-header-->
         <div class="clear"></div>
         <div class="div-topmenu">
-            <ul>
-                <li>
-                    <a asp-area="" asp-controller="Home" asp-action="Index">Hem</a>
-                </li>
-                <li>
-                    <a asp-area="" asp-controller="Order" asp-action="Index">Beställ ved</a>
-                </li>
-                <li>
-                    <a asp-area="" asp-controller="Admin" asp-action="Index">Administratör</a>
-                </li>
 
-                @{ if (User.IsInRole("Admin"))
-                    {
+            @{ if (User.IsInRole("Admin"))
+                {
+                    <ul>
+                        <li>
+                            <a asp-area="" asp-controller="Admin" asp-action="Index">Hem</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Admin" asp-action="Index">Ordrar</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Admin" asp-action="Index">Lagersaldon</a>
+                        </li>
                         <li>
                             <a asp-area="" asp-controller="Account" asp-action="Logout">Logga ut</a>
                         </li>
-                    }
+
+                    </ul>
                 }
-            </ul>
+
+                else
+                {
+                    <ul>
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Index">Hem</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Order" asp-action="Index">Beställ ved</a>
+                        </li>
+                    </ul>
+                }
+
+            }
+
         </div><!-----div-topmenu-->
         <div class="clear"></div>
 
-        @{ if (User.IsInRole("Admin"))
+        <!-- (User.IsInRole("Admin"))
             {
 
                 <div class="div-left">
-                    <div class="admin-menu">Administratörsmeny</div><!------Category-title---->
-                    <div class="admin-menu-list">
+                    <div class="admin-menu">Administratörsmeny</div>--><!------Category-title---->
+                    <!--<div class="admin-menu-list">
                         <ul>
                             <li><a href="#">Orderöversikt</a></li>
                             <li><a href="#">Lager</a></li>
                             <li><a href="#">Test</a></li>
                         </ul>
-                    </div><!----Category-List----->
-                </div><!--div-left-->
-                
-            }
-        }
+                    </div>--><!----Category-List----->
+                <!--</div>--><!--div-left-->
+            <!--}
+        }-->
 
         <div class="div-main">
             <div class="main-content">
@@ -66,13 +80,13 @@
         </div>
 
     </div>
-    
+
 
     @*<div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>*@
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>*@
 
 
     <div class="clear"></div>

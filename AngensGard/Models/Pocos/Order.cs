@@ -20,10 +20,12 @@ namespace AngensGard.Models.Pocos
         public int ProductQuantity { get; set; }
 
         //DatabaseGenerated som annotation på datumet kanske? Kolla föreläsningen ASP.net Core identity 6 min in med erik 
-        public string OrderDate { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime OrderDate { get; set; }
         public int TotalPrice { get; set; }
 
         public Product Product { get; set; }
+        public string OrderStatus { get; set; }
 
         //Göra denna till virtual? Alltså så att det blir foreign key i databasen
         //public OrderDetail OrderDetail { get; set; }

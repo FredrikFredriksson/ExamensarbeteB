@@ -18,7 +18,7 @@ namespace AngensGard.Models.ViewModels
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public string OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
         public bool IsHomeDelivery { get; set; }
         public int Quantity { get; set; }
         public string Payment { get; set; }
@@ -36,7 +36,7 @@ namespace AngensGard.Models.ViewModels
 
         private void SetDate()
         {
-            OrderDate = DateTime.Now.ToString();
+            OrderDate = DateTime.Now;
         }
 
 

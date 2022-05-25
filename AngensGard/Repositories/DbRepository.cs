@@ -70,7 +70,8 @@ namespace AngensGard.Repositories
                 Product = RegisteredOrder.Product,
                 TotalPrice = RegisteredOrder.TotalPrice,
                 PaymentMethod = RegisteredOrder.Payment,
-                ProductQuantity = RegisteredOrder.Quantity
+                ProductQuantity = RegisteredOrder.Quantity,
+                OrderStatus = "Pågående"
             };
             order.Product.StockQuantity -= RegisteredOrder.Quantity;
 

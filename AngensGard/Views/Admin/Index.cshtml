@@ -1,15 +1,17 @@
 ﻿
 @model AdminViewModel
 
+
 <h3>Administratörssidan</h3>
 
 
-<table>
+<table class="content-table">
     <tr>
         <th>Order ID</th>
         <th>Namn</th>
         <th>Datum</th>
         <th>Adress</th>
+        <th>Status</th>
     </tr>
 
     @foreach (var order in Model.Orders)
@@ -19,6 +21,7 @@
             <td>@order.Name</td>
             <td>@order.OrderDate</td>
             <td>@order.Address</td>
+            <td>@order.OrderStatus</td>
             <td>
                 @Html.ActionLink("Ändra", "EditOrder", "Admin", new { id = order.Id })
                 @Html.ActionLink("Detaljer", "OrderDetails", "Admin", new { id = order.Id })
