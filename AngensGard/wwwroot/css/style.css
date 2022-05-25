@@ -128,11 +128,10 @@ ul {
     float: left;
 }
 
-    .main-content form .buttonLink {
+    /*.main-content form .buttonLink {
         background: none !important;
         border: none;
         padding: 0 !important;
         font: inherit;
-        border-bottom: 1px solid #333;
         cursor: pointer;
-    }
+    }*/
