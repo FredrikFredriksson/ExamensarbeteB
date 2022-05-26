@@ -65,11 +65,18 @@
     padding: 10px;
 }
 
-.grid-container {
-    display: grid;
-    gap: 1rem;
-    flex-direction: r
+.flex-container {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    width: 100%;
     /*grid-template-columns: 100px;*/ /*grid-template-columns: repeat(5, 1fr);*/
+}
+
+.flex-box{
+    display: flex;
+    gap: 2rem;
+    width: 100%
 }
 
 .admin-card {
@@ -78,6 +85,7 @@
     overflow: hidden;
     background-color: #8b9788;
     color: #ffffff;
+    width: 33%;
 }
 
        /* .content-table tbody tr.active-row {
