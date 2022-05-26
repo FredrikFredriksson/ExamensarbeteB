@@ -50,33 +50,6 @@ ul {
                         color: #ffffff
                     }
 
-    .div-container .div-left {
-        float: left;
-        width: 15%;
-        border-right: 3px solid #ffffff;
-        margin-top: 5px;
-    }
-
-        .div-container .div-left .admin-menu {
-            text-transform: uppercase;
-            background-color: #333;
-            color: #ffffff;
-            text-align: center;
-            padding: 5px;
-        }
-
-        
-
-                .div-container .div-left .admin-menu-list ul li a {
-                    text-decoration: none;
-                    line-height: 25px;
-                }
-
-                    .div-container .div-left .admin-menu-list ul li a:hover {
-                        background-color: black;
-                        color: #ffffff
-                    }
-
     .div-container -div-main {
         float: left;
         width: 84%;
