@@ -1,35 +1,34 @@
-﻿<link href="~/css/AdminSheet.css" rel="stylesheet" />
+﻿@model AdminViewModel 
+<link href="~/css/AdminStyle.css" rel="stylesheet" />
 <div class="flex-container">
     <div class="flex-box">
         <article class="admin-card">
             <h3>10</h3>
-            <a href=#>Alla beställningar</a>
+            <a href=@Url.Action("Orders", "Admin")>Alla beställningar</a>
         </article>
         <article class="admin-card">
             <h3>2</h3>
-            <a href=#>Obetalda beställningar</a>
+            <a href=@Url.Action("Orders", "Admin", new { status = "Obetald"})>Obetalda beställningar</a>
         </article>
         <article class="admin-card">
             <h3>5</h3>
-            <a href=#>Pågående beställningar</a>
+            <a href=@Url.Action("Orders", "Admin", new { status = "Pågående"})>Pågående beställningar</a>
         </article>
     </div>
     <div class="flex-box">
         <article class="admin-card">
             <h3>3</h3>
-            <a href=#>Färdiga beställningar</a>
-        </article>
-        <article class="admin-card">
-            <h3>Lagersaldo</h3>
-            <p>5st säckar björkved</p>
-            <p>10st 10m² container</p>
-            <p>20st 15m² container</p>
-            <a href=#>Gå till lagersaldon</a>
+            <a href=@Url.Action("Orders", "Admin", new { status = "Klar"})>Klara beställningar</a>
         </article>
         <article class="admin-card">
             <h3>3</h3>
-            <a href=#>Färdiga beställningar</a>
+            <a href=@Url.Action("Orders", "Admin", new { status = "Hemleverans"})>Hemleveranser</a>
         </article>
+        <article class="admin-card">
+            <h3>Lagersaldo</h3>
+            <a href=#>Gå till lagersaldon</a>
+        </article>
+
     </div>
 </div>
 @*<div class="clear"></div>

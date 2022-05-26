@@ -65,24 +65,25 @@
 }
 
 .admin-card {
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    background-color: #8b9788;
+    background-color: #697566;
     color: #ffffff;
     width: 300px;
-    height: 100px;
+    height: 150px;
     justify-content: center;
     margin: 10px;
 }
 
     .admin-card a {
+        border-radius: 15px;
         text-decoration: none;
-        background-color: black;
+        background-color: #8b9788;
         color: white;
         padding: 15px 20px;
-        display: block;
-        margin: 20px 50px;
+        margin: 10px 10px;
+        display: flex;
     }
 
         .admin-card a:hover {
@@ -91,6 +92,7 @@
     .admin-card h3 {
         display: block;
         text-align: center;
+        font-size: 25px;
     }
 
 .flex-container {
@@ -109,4 +111,10 @@
     gap: 2rem;
     width: 60%;
     height: auto;
+}
+
+@media screen and (max-width: 860px) {
+    .flex-box {
+        flex-direction: column;
+    }
 }

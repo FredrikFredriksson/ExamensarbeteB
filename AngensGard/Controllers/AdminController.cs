@@ -29,14 +29,27 @@ namespace AngensGard.Controllers
             return View();
         }
 
-        public IActionResult Orders()
+        public IActionResult Orders(string status)
         {
-            var model = new AdminViewModel()
+            var model = new AdminViewModel();
+            if (status != null)
             {
-                Orders = _repo.GetListOfOrders()
-            };
+                if (status == "Hemleverans")
+                {
+                    model.Orders = _repo.GetOrdersByDelivery(status);
+                    return View(model);
+                }
+                model.Orders = _repo.GetOrdersByStatus(status);
+            }
+            else
+            {
+                model.Orders = _repo.GetListOfOrders();                
+            }
+
             return View(model);
         }
+
+        
 
         public IActionResult OrderDetails(int Id)
         {

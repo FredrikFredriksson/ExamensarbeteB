@@ -1,66 +1,112 @@
 ﻿@model OrderViewModel
+    <link href="~/css/AdminStyle.css" rel="stylesheet" />
+<article class="card">
+    <div class="card-info">
 
-<h1>Översikt</h1>
+        <p id="Name">@Model.Name</p>
+        <p id="Name">@Model.Address, @Model.ZipCode @Model.City</p>
+        <p id="Name">@Model.Email</p>
+        <p id="PhoneNumber">@Model.PhoneNumber</p>
 
-<h2>Din beställning</h2>
-<br />
-<label>Orderdatum:</label>
-<label>@Model.OrderDate</label>
-<br />
-<label>Namn:</label>
-<label>@Model.Name</label>
-<br />
-<label>Adress:</label>
-<label>@Model.Address</label>
-<br />
-<label>Postkod & Ort:</label>
-<label>@Model.ZipCode</label>
-<label>@Model.City</label>
-<br />
-<label>E-postadress:</label>
-<label>@Model.Email</label>
-<br />
-<label>Telefonnummer:</label>
-<label>@Model.PhoneNumber</label>
-<br />
-<label>Betalningsmetod:</label>
-<label>@Model.Payment</label>
-<br />
+        <p id="PaymentMethod">@Model.Payment</p>
 
-<table>
-    <tr>
-        <th>Produkt</th>
-        <th>Antal</th>
-        <th>Pris</th>
-    </tr>
+    </div>
+    <div class="card-products">
+        <table class="content-table">
+            <tr>
+                <th>Produkt</th>
+                <th>Antal</th>
+                <th>Pris</th>
+            </tr>
+            <tr>
+                <td>@Model.Product.Name</td>
+                <td>@Model.Quantity</td>
+                <td>@Model.Product.Price</td>
+            </tr>
+            @if (Model.Delivery == "Hemleverans")
+            {
+                <tr>
+                    <td>Hemleverans</td>
+                    <td></td>
+                    <td>250</td>
+                </tr>
 
-    <tr>
-        <td>@Model.Product.Name</td>
-        <td>@Model.Quantity</td>
-        <td>@Model.ProductPrice</td>
-    </tr>
-    @if (Model.IsHomeDelivery)
-    {
-        <td>Hemkörning</td>
-        <td></td>
-        <td>250</td>
-    }
+            }
+            <tr>
+                <td>Totalt</td>
+                <td></td>
+                <td>@Model.TotalPrice</td>
+            </tr>
+        </table>
+    </div>
+    <a href="@Url.Action("Index", "Order")">Gå tillbaka</a>
 
-    <tr>
-        <td>Totalt</td>
-        <td></td>
-        <td>@Model.TotalPrice</td>
-    </tr>
-</table>
-<br />
+    <a href="@Url.Action("ConfirmOrder", "Order", @Model)">Beställ</a>
+
+</article>
 
 
+@*<h1>Översikt</h1>
+
+    <h2>Din beställning</h2>
+    <br />
+    <label>Orderdatum:</label>
+    <label>@Model.OrderDate</label>
+    <br />
+    <label>Namn:</label>
+    <label>@Model.Name</label>
+    <br />
+    <label>Adress:</label>
+    <label>@Model.Address</label>
+    <br />
+    <label>Postkod & Ort:</label>
+    <label>@Model.ZipCode</label>
+    <label>@Model.City</label>
+    <br />
+    <label>E-postadress:</label>
+    <label>@Model.Email</label>
+    <br />
+    <label>Telefonnummer:</label>
+    <label>@Model.PhoneNumber</label>
+    <br />
+    <label>Betalningsmetod:</label>
+    <label>@Model.Payment</label>
+    <br />
+
+    <table>
+        <tr>
+            <th>Produkt</th>
+            <th>Antal</th>
+            <th>Pris</th>
+        </tr>
+
+        <tr>
+            <td>@Model.Product.Name</td>
+            <td>@Model.Quantity</td>
+            <td>@Model.ProductPrice</td>
+        </tr>
+        @if (Model.IsHomeDelivery)
+        {
+            <td>Hemleverans</td>
+            <td></td>
+            <td>250</td>
+        }
+
+        <tr>
+            <td>Totalt</td>
+            <td></td>
+            <td>@Model.TotalPrice</td>
+        </tr>
+    </table>
+    <br />
 
 
 
-<a href="@Url.Action("Index", "Order")">Gå tillbaka</a>
 
-<a href="@Url.Action("ConfirmOrder", "Order", @Model)">Beställ</a>
+
+    <a href="@Url.Action("Index", "Order")">Gå tillbaka</a>
+
+    <a href="@Url.Action("ConfirmOrder", "Order", @Model)">Beställ</a>*@
 
 
 

@@ -136,6 +136,21 @@ namespace AngensGard.Repositories
             _db.SaveChanges();
         }
 
+        public List<Order> GetOrdersByStatus(string status)
+        {
+            var data = _db.Orders.Where(x => x.OrderStatus == status)
+                .Include(x => x.Product);
+
+            return data.ToList();
+        }
+
+        public List<Order> GetOrdersByDelivery(string delivery)
+        {
+            var data = _db.Orders.Where(x => x.Delivery == delivery && x.OrderStatus != "Klar")
+                .Include(x => x.Product);
+
+            return data.ToList();
+        }
 
         //Hämtar en order från databasen
         //Hitta med ordernummer istället för id?

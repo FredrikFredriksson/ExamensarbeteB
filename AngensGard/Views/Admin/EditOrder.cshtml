@@ -4,6 +4,7 @@
 <form asp-controller="Admin" asp-action="EditOrder" asp-route-id="@Model" method="post" enctype="multipart/form-data" id="orderForm">
     <fieldset>
         <legend>Vedbeställning</legend>
+        <h3>Ordernummer: @Model.Id</h3>
         <input type="hidden" value="@Model.Id" asp-for="Id" />
         <input type="hidden" value="@Model.OrderDate" asp-for="OrderDate" />
 
