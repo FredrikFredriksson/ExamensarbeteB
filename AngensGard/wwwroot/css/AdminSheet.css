@@ -6,7 +6,6 @@
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-
 }
 
     .content-table th {
@@ -20,7 +19,7 @@
         padding: 12px 10px;
     }
 
-    .content-table td a{
+    .content-table td a {
         text-decoration: none;
     }
 
@@ -30,12 +29,12 @@
     }
 
         .content-table tbody tr:nth-of-type(2n+1) {
-            background-color: #f3f3f3;            
+            background-color: #f3f3f3;
         }
 
-    .content-table tbody tr:last-of-type{
-        border-bottom: 2px solid #8b9788;
-    }
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #8b9788;
+        }
 
 
 .buttonLink {
@@ -65,30 +64,49 @@
     padding: 10px;
 }
 
+.admin-card {
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background-color: #8b9788;
+    color: #ffffff;
+    width: 300px;
+    height: 100px;
+    justify-content: center;
+    margin: 10px;
+}
+
+    .admin-card a {
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 15px 20px;
+        display: block;
+        margin: 20px 50px;
+    }
+
+        .admin-card a:hover {
+        }
+
+    .admin-card h3 {
+        display: block;
+        text-align: center;
+    }
+
 .flex-container {
     display: flex;
     gap: 2rem;
     flex-direction: column;
     width: 100%;
-    /*grid-template-columns: 100px;*/ /*grid-template-columns: repeat(5, 1fr);*/
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
 }
 
-.flex-box{
+.flex-box {
     display: flex;
     gap: 2rem;
-    width: 100%
+    width: 60%;
+    height: auto;
 }
-
-.admin-card {
-    border-radius: 5px 5px 0 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    background-color: #8b9788;
-    color: #ffffff;
-    width: 33%;
-}
-
-       /* .content-table tbody tr.active-row {
-            font-weight: bold;
-            color: #8b9788;
-        }*/
