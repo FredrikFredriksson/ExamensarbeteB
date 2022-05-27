@@ -1,17 +1,23 @@
 ﻿@model OrderViewModel
-    <link href="~/css/AdminStyle.css" rel="stylesheet" />
-<article class="card">
-    <div class="card-info">
-
+    <link href="~/css/UserStyle.css" rel="stylesheet" />
+<h2 class="Site-header">Orderöversikt</h2>
+<div class="overview-grid">
+    <div class="overview customer-info">
+        <h3>Dina uppgifter</h3>
         <p id="Name">@Model.Name</p>
         <p id="Name">@Model.Address, @Model.ZipCode @Model.City</p>
         <p id="Name">@Model.Email</p>
         <p id="PhoneNumber">@Model.PhoneNumber</p>
-
-        <p id="PaymentMethod">@Model.Payment</p>
-
     </div>
-    <div class="card-products">
+    <div class="overview payment-info">
+        <h3>Betalningsmetod</h3>
+        <p>@Model.Payment</p>
+    </div>
+    <div class="overview delivery-info">
+        <h3>Leveransmetod</h3>
+        <p>@Model.Delivery</p>
+    </div>
+    <div class="overview product-info grid-row-span-2">
         <table class="content-table">
             <tr>
                 <th>Produkt</th>
@@ -30,7 +36,6 @@
                     <td></td>
                     <td>250</td>
                 </tr>
-
             }
             <tr>
                 <td>Totalt</td>
@@ -39,13 +44,14 @@
             </tr>
         </table>
     </div>
-    <a href="@Url.Action("Index", "Order")">Gå tillbaka</a>
 
-    <a href="@Url.Action("ConfirmOrder", "Order", @Model)">Beställ</a>
+    <div class="overview div-buttons">
+        <a href="@Url.Action("Index", "Order")">Gå tillbaka</a>
 
-</article>
+        <a href="@Url.Action("ConfirmOrder", "Order", @Model)">Slutför</a>
+    </div>
 
-
+</div>
 @*<h1>Översikt</h1>
 
     <h2>Din beställning</h2>

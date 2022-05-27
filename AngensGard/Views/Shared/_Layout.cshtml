@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AngensGard</title>
-    <link rel="stylesheet" href="~/css/style.css" />
+
+    <link href="~/css/GeneralStyle.css" rel="stylesheet" />
 </head>
 <body>
     <div class="div-container">
@@ -59,11 +60,7 @@
             </div><!---Main-content-->
         </div><!---div main-->
         <div class="clear"></div>
-        <div class="div-footer">
-            <p>Ängens gård</p>
-            <p>Epost: <a href="mailto:angenbararp@gmail.com">Angensgard</a></p>
-            <p>Instagram: <a href="https://www.instagram.com/bararpsloge/">Bararpsloge</a></p>
-        </div>
+        
 
     </div>
 
@@ -75,15 +72,19 @@
         </div>*@
 
 
-    <div class="clear"></div>
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - AngensGard - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <!--<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>--->
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+<footer>
+    <div class="div-footer">
+        <!----div-footer-->
+        &copy; 2022 - AngensGard - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <p>Ängens gård</p>
+        <p>Epost: <a href="mailto:angenbararp@gmail.com">Angensgard</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/bararpsloge/">Bararpsloge</a></p>
+    </div>
+</footer>
 </html>

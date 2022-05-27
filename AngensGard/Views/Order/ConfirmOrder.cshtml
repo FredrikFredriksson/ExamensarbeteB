@@ -1,6 +1,60 @@
 ﻿@model OrderViewModel
+    <link href="~/css/UserStyle.css" rel="stylesheet" />
+<div class="confirm-text">
+    <h2 class="Site-header">Tack för din beställning!</h2>
 
+    <h3>Betalningsinformation</h3>
+    <p>Din beställning måste betalas senast vid leverans av produkterna oavsett vilken betalningsmetod du har valt. Nedan finner du betalningsinformationen för respektive betalningsmetod</p>
+    <h4>Swish:</h4>
+    <p>Du swishar totalsumman för din beställning till nummer 123456789, mottagaren heter Jonas Fredriksson. Skriv ditt ordernummer i meddelandefältet när du swishar pengarna. </p>
+    <h4>Bankgiro:</h4>
+    <p>Du skickar totalsumman för din beställning till bankgiro: XXXX-XXXX. Skriv ditt ordernummer i meddelandefältet för överföringen.</p>
+    
+</div>
+<div class="overview-grid">
+    <div class="overview customer-info">
+        <h3>Dina uppgifter</h3>
+        <p id="Name">@Model.Name</p>
+        <p id="Name">@Model.Address, @Model.ZipCode @Model.City</p>
+        <p id="Name">@Model.Email</p>
+        <p id="PhoneNumber">@Model.PhoneNumber</p>
+    </div>
+    <div class="overview payment-info">
+        <h3>Betalningsmetod</h3>
+        <p>@Model.Payment</p>
+    </div>
+    <div class="overview delivery-info">
+        <h3>Leveransmetod</h3>
+        <p>@Model.Delivery</p>
+    </div>
+    <div class="overview product-info grid-row-span-2">
+        <table class="content-table">
+            <tr>
+                <th>Produkt</th>
+                <th>Antal</th>
+                <th>Pris</th>
+            </tr>
+            <tr>
+                <td>@Model.Product.Name</td>
+                <td>@Model.Quantity</td>
+                <td>@Model.Product.Price</td>
+            </tr>
+            @if (Model.Delivery == "Hemleverans")
+            {
+                <tr>
+                    <td>Hemleverans</td>
+                    <td></td>
+                    <td>250</td>
+                </tr>
+            }
+            <tr>
+                <td>Totalt</td>
+                <td></td>
+                <td>@Model.TotalPrice</td>
+            </tr>
+        </table>
+    </div>
 
-<h3>Tack för din beställning!</h3><br />
-<label>Du får en bekräftelse på din beställning skickad till @Model.Email</label>
+</div>
+
 

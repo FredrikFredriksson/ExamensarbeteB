@@ -3,25 +3,30 @@
 <div class="flex-container">
     <div class="flex-box">
         <article class="admin-card">
-            <h3>10</h3>
-            <a href=@Url.Action("Orders", "Admin")>Alla beställningar</a>
+            <h3>Alla beställningar</h3>
+            <h2>10st</h2>
+            <a href=@Url.Action("Orders", "Admin")>Se alla beställningar</a>
         </article>
         <article class="admin-card">
-            <h3>2</h3>
+            <h3>Obetalda beställningar</h3>
+            <h2>5st</h2>
             <a href=@Url.Action("Orders", "Admin", new { status = "Obetald"})>Obetalda beställningar</a>
         </article>
         <article class="admin-card">
-            <h3>5</h3>
+            <h3>Pågående beställningar</h3>
+            <h2>2st</h2>
             <a href=@Url.Action("Orders", "Admin", new { status = "Pågående"})>Pågående beställningar</a>
         </article>
     </div>
     <div class="flex-box">
         <article class="admin-card">
-            <h3>3</h3>
+            <h3>Klara beställningar</h3>
+            <h2>3st</h2>
             <a href=@Url.Action("Orders", "Admin", new { status = "Klar"})>Klara beställningar</a>
         </article>
         <article class="admin-card">
-            <h3>3</h3>
+            <h3>Hemleveranser</h3>
+            <h2>2st</h2>
             <a href=@Url.Action("Orders", "Admin", new { status = "Hemleverans"})>Hemleveranser</a>
         </article>
         <article class="admin-card">

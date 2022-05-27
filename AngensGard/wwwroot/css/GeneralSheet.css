@@ -14,7 +14,10 @@ ul {
 }
 
 .div-container {
-    background-color: #f2f2f2
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    
 }
 
     .div-container .div-header {
@@ -53,7 +56,6 @@ ul {
     .div-container -div-main {
         float: left;
         width: 84%;
-        
     }
 
         .div-container -div-main .div-main-content {
@@ -76,7 +78,7 @@ ul {
                 text-decoration: underline;
             }
 
-  
+
 
     .div-container .div-main .div-pagination li {
         display: inline;
@@ -91,15 +93,14 @@ ul {
     float: left;
 }
 
-.main-content{
+.main-content {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
-.div-footer {
-    position: absolute;
+
+footer {
+    margin-top: auto;
     width: 100%;
-    bottom: 0;
 }
-  
-  

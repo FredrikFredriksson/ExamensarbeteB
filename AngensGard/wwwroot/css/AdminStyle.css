@@ -71,7 +71,7 @@
     background-color: #697566;
     color: #ffffff;
     width: 300px;
-    height: 150px;
+    height: 200px;
     justify-content: center;
     margin: 10px;
 }
@@ -89,11 +89,12 @@
         .admin-card a:hover {
         }
 
-    .admin-card h3 {
+    .admin-card h3, h2 {
         display: block;
         text-align: center;
-        font-size: 25px;
+        font-size: 20px;
     }
+    
 
 .flex-container {
     display: flex;
