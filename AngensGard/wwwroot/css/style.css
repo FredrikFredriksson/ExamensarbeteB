@@ -18,9 +18,11 @@ ul {
 }
 
     .div-container .div-header {
-        background-color: #333;
+        background-color: #8b9788;
         color: #ffffff;
         padding: 20px;
+        height: 60px;
+        opacity: 85%;
     }
 
     .div-container .div-topmenu {

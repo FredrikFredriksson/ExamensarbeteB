@@ -11,45 +11,46 @@
 <body>
     <div class="div-container">
         <div class="div-header">
-            Ängens Gård
+            <img src="Images/logo.png" />
+            <div class="div-topmenu">
+
+                @{ if (User.IsInRole("Admin"))
+                    {
+                        <ul>
+                            <li>
+                                <a asp-area="" asp-controller="Admin" asp-action="Index">Hem</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Admin" asp-action="Orders">Ordrar</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Admin" asp-action="Index">Lagersaldon</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Account" asp-action="Logout">Logga ut</a>
+                            </li>
+
+                        </ul>
+                    }
+
+                    else
+                    {
+                        <ul>
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Index">Hem</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Order" asp-action="Index">Beställ ved</a>
+                            </li>
+                        </ul>
+                    }
+
+                }
+
+            </div><!-----div-topmenu-->
         </div><!--div-header-->
         <div class="clear"></div>
-        <div class="div-topmenu">
-
-            @{ if (User.IsInRole("Admin"))
-                {
-                    <ul>
-                        <li>
-                            <a asp-area="" asp-controller="Admin" asp-action="Index">Hem</a>
-                        </li>
-                        <li>
-                            <a asp-area="" asp-controller="Admin" asp-action="Orders">Ordrar</a>
-                        </li>
-                        <li>
-                            <a asp-area="" asp-controller="Admin" asp-action="Index">Lagersaldon</a>
-                        </li>
-                        <li>
-                            <a asp-area="" asp-controller="Account" asp-action="Logout">Logga ut</a>
-                        </li>
-
-                    </ul>
-                }
-
-                else
-                {
-                    <ul>
-                        <li>
-                            <a asp-area="" asp-controller="Home" asp-action="Index">Hem</a>
-                        </li>
-                        <li>
-                            <a asp-area="" asp-controller="Order" asp-action="Index">Beställ ved</a>
-                        </li>
-                    </ul>
-                }
-
-            }
-
-        </div><!-----div-topmenu-->
+        
         <div class="clear"></div>
 
         

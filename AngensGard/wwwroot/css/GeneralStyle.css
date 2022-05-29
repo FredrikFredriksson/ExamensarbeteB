@@ -21,10 +21,20 @@ ul {
 }
 
     .div-container .div-header {
-        background-color: #333;
+        background-color: #8b9788;
         color: #ffffff;
         padding: 20px;
+        align-items: center; 
+        justify-content: center; 
+        opacity: 85%;
     }
+        .div-container .div-header img {
+            height: 100px;
+            width: 200px;
+        }
+        
+
+
 
     .div-container .div-topmenu {
         background-color: #ffffff;
@@ -49,8 +59,7 @@ ul {
                 }
 
                     .div-container .div-topmenu ul li a:hover {
-                        background-color: black;
-                        color: #ffffff
+                        cursor: pointer;
                     }
 
     .div-container -div-main {
