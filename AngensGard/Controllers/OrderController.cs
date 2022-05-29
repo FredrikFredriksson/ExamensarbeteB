@@ -27,6 +27,8 @@ namespace AngensGard.Controllers
             return View();
         }
 
+    
+
         public IActionResult ConfirmOrder(OrderViewModel order)
         {
             order.Product = _repo.GetProductById(order.ProductId);

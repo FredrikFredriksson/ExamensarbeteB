@@ -1,9 +1,10 @@
 ﻿body {
-    background-color: #f2f2f2;
+    background-color: white;
     margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'Baskerville Old Face'
 }
 
 ul {
@@ -15,7 +16,6 @@ ul {
 }
 
 .div-container {
-    background-color: #f2f2f2;
     display: flex;
     flex-direction: column;
 }
@@ -24,25 +24,28 @@ ul {
         background-color: #8b9788;
         color: #ffffff;
         padding: 20px;
-        align-items: center; 
-        justify-content: center; 
-        opacity: 85%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
     }
+
         .div-container .div-header img {
             height: 100px;
             width: 200px;
+            margin-right: 60px;
         }
-        
+
 
 
 
     .div-container .div-topmenu {
-        background-color: #ffffff;
+        
         padding: 20px;
     }
 
         .div-container .div-topmenu ul {
             margin: 0;
+            
         }
 
             .div-container .div-topmenu ul li {
@@ -53,9 +56,11 @@ ul {
 
                 .div-container .div-topmenu ul li a {
                     text-decoration: none;
-                    color: black;
+                    color: #ffffff;
                     text-transform: uppercase;
-                    font-weight: bold;
+                    
+                    font-size: 20px;
+                    
                 }
 
                     .div-container .div-topmenu ul li a:hover {
@@ -70,16 +75,18 @@ ul {
         .div-container -div-main .div-main-content {
             float: left;
         }
+       
 
 .div-footer {
-    background-color: #333;
-    color: #ffffff;
+    background-color: #f2f2f2;
+    color: black;
     padding: 5px 10px 5px 20px;
     line-height: 10px;
+    height: 300px;
 }
 
     .div-footer a {
-        color: #ffffff;
+        color: black;
         text-decoration: none;
     }
 

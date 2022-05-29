@@ -20,6 +20,10 @@ namespace AngensGard.Controllers
             return View();
         }
 
+        public IActionResult Info()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

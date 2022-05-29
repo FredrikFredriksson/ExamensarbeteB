@@ -100,21 +100,55 @@
 .div-buttons {
     display: flex;
     justify-content: center;
+    gap: 5rem;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
+    .div-buttons a {
+        border-radius: 15px;
+        text-decoration: none;
+        background-color: #b9b0ac;
+        color: white;
+        padding: 15px 20px;
+        margin: 10px 10px;
+        display: flex;
+    }
 
 .overview a {
-    display: block;
+    display: inline-block;
     border-radius: 15px;
     text-decoration: none;
-    background-color: #8b9788;
+    background-color: #b9b0ac;
     color: white;
     padding: 20px;
     margin: 40px;
     width: 100px;
     text-align: center;
 }
+.confirm-text {
+    width: 800px;
+}
 
 .Site-header {
     font-size: 30px;
 }
 
+.div-info {
+    width: 649px;
+}
+
+    .div-info h1 {
+        font-size: 50px;
+    }
+
+    .div-info h3 {
+        font-size: 30px;
+    }
+
+    .div-info p {
+        font-size: 18px;
+    }
+    
+
+
+    
