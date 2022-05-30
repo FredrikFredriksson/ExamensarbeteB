@@ -25,6 +25,7 @@ namespace AngensGard.Models.Pocos
 
         public Product Product { get; set; }
         public string OrderStatus { get; set; }
+        public string PaymentStatus { get; set; }
 
         //Göra denna till virtual? Alltså så att det blir foreign key i databasen
         //public OrderDetail OrderDetail { get; set; }

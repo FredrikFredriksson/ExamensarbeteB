@@ -79,7 +79,8 @@ namespace AngensGard.Repositories
                 PaymentMethod = RegisteredOrder.Payment,
                 ProductQuantity = RegisteredOrder.Quantity,
                 OrderStatus = "Pågående",
-                Delivery = RegisteredOrder.Delivery
+                Delivery = RegisteredOrder.Delivery,
+                PaymentStatus = "Obetald"
             };
             order.Product.StockQuantity -= RegisteredOrder.Quantity;
 
