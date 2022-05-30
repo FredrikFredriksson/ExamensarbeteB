@@ -1,14 +1,13 @@
 ﻿@model AdminViewModel
 
-<link href="~/css/AdminStyle.css" rel="stylesheet" />
 
+<link href="~/css/AdminStyleSheet.css" rel="stylesheet" />
 <table class="content-table">
     <tr>
         <th>Order Id</th>
         <th>Namn</th>
         <th>Datum</th>
-        <th>Adress</th>
-        <th>Betalningsmetod</th>
+        <th>Adress</th>        
         <th>Leveranssätt</th>
         <th>Status</th>
         <th></th>
@@ -22,8 +21,7 @@
             <td>@order.Id</td>
             <td>@order.Name</td>
             <td>@order.OrderDate.ToString("dd/MM/yyyy")</td>
-            <td>@order.Address</td>
-            <td>@order.PaymentMethod</td>
+            <td>@order.Address</td>            
             <td>@order.Delivery</td>
             <td>@order.OrderStatus</td>
             <td class="table-links">

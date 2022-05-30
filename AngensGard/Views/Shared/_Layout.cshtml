@@ -5,8 +5,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AngensGard</title>
-    <link href="~/css/LayoutSheet.css" rel="stylesheet" />
-    
+
+    <link href="~/css/LayoutStyle.css" rel="stylesheet" />
+
 </head>
 <body>
     <div class="div-container">
@@ -84,12 +85,23 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 <footer>
-    <div class="div-footer">
-        <!----div-footer-->
-        &copy; 2022 - AngensGard - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        <p>Ängens gård</p>
-        <p>Epost: <a href="mailto:angenbararp@gmail.com">Angensgard</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/bararpsloge/">Bararpsloge</a></p>
+    <div class="div-footer-container">
+        <div class="footer-item">
+            <h2>Gårdsbutikens öppettider</h2>
+            <p>Torsdagar 17-19 eller enligt överenskommelse</p>
+
+        </div>
+        <div class="footer-item">
+            <h2>Hitta hit</h2>
+            <p>Ängen Bårarp 28, 556 28  Jönköping</p>
+            
+        </div>
+        <div class="footer-item">
+            <h2>Hör av dig</h2>
+            <p>angenbararp@gmail.com</p>
+            <p>076-696 26 95</p>
+        </div>
     </div>
+    
 </footer>
 </html>

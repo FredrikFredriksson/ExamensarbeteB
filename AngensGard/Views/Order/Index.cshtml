@@ -1,71 +1,82 @@
 ﻿@model OrderViewModel
 
 
-<link href="~/css/OrderStyle.css" rel="stylesheet" />
+<link href="~/css/OrderStyleSheet.css" rel="stylesheet" />
+<div class="form-container">
     <form asp-controller="Order" asp-action="Overview" asp-route-id="@Model" method="post" enctype="multipart/form-data" id="orderForm">
         <fieldset>
             <legend>Vedbeställning</legend>
 
-
-            <label for="Name" id="customerName">Namn</label>
-            <input asp-for="Name" name="Name" class="form-control" id="Name" onfocus="this.value=''" />
-            <span asp-validation-for="Name" class="text-danger"></span>
-
-
-            <label for="Address" id="customerAddress">Adress</label>
-            <input asp-for="Address" name="Address" class="form-control" id="Address" onfocus="this.value=''" />
-            <span asp-validation-for="Address" class="text-danger"></span>
+            <div class="order-items">
+                <label for="Name" id="customerName">Namn</label>
+                <input asp-for="Name" name="Name" class="form-control" id="Name" onfocus="this.value=''" />
+                <span asp-validation-for="Name" class="text-danger"></span>
 
 
-            <label for="ZipCode" id="customerZipCode">Postnummer</label>
-            <input asp-for="ZipCode" name="ZipCode" class="form-control" id="ZipCode" onfocus="this.value=''" />
-            <span asp-validation-for="ZipCode" class="text-danger"></span>
+                <label for="Address" id="customerAddress">Adress</label>
+                <input asp-for="Address" name="Address" class="form-control" id="Address" onfocus="this.value=''" />
+                <span asp-validation-for="Address" class="text-danger"></span>
 
 
-            <label for="City" id="customerCity">Ort</label>
-            <input asp-for="City" name="City" class="form-control" id="City" onfocus="this.value=''" />
-            <span asp-validation-for="City" class="text-danger"></span>
+                <label for="ZipCode" id="customerZipCode">Postnummer</label>
+                <input asp-for="ZipCode" name="ZipCode" class="form-control" id="ZipCode" onfocus="this.value=''" />
+                <span asp-validation-for="ZipCode" class="text-danger"></span>
 
 
-            <label for="PhoneNumber" id="customerPhoneNumber">Telefonnummer</label>
-            <input asp-for="PhoneNumber" name="PhoneNumber" class="form-control" id="PhoneNumber" onfocus="this.value=''" />
-            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                <label for="City" id="customerCity">Ort</label>
+                <input asp-for="City" name="City" class="form-control" id="City" onfocus="this.value=''" />
+                <span asp-validation-for="City" class="text-danger"></span>
 
 
-            <label for="Email" id="customeremail">E-postadress</label>
-            <input asp-for="Email" name="Email" class="form-control" id="Email" onfocus="this.value=''" />
-            <span asp-validation-for="Email" class="text-danger"></span>
+                <label for="PhoneNumber" id="customerPhoneNumber">Telefonnummer</label>
+                <input asp-for="PhoneNumber" name="PhoneNumber" class="form-control" id="PhoneNumber" onfocus="this.value=''" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
 
 
-            <label for="Product">Välj produkt</label>
-            <select asp-for="ProductId" id="Product">
-                <option value="1">Björkved (1m² 650SEK, säck)</option>
-                <option value="2">Björkved (10m² 5500SEK, container)</option>
-                <option value="4">Björkved (15m² 8250SEK, container)</option>
-            </select>
-
-            <label for="Quantity" id="customeremail">Antal</label>
-            <input asp-for="Quantity" name="Quantity" class="form-control" id="Quantity" onfocus="this.value=''" />
-            <span asp-validation-for="Quantity" class="text-danger"></span>
-
-
-            <label for="Payment" id="customeremail">Betalningsmetod</label>
-            <select asp-for="Payment" name="Payment" id="Payment">
-                <option value="Swish">Swish</option>
-                <option value="Bank Giro">Bank Giro</option>
-                <option value="Betala vid leverans">Betala vid leverans</option>
-            </select>
-
-
-            <div class="checks">
-                @Html.RadioButtonFor(m => m.IsHomeDelivery, "true")
-                <label for="radiobutton1" id="lblradio1">Hemleverans</label>
-
-                @Html.RadioButtonFor(m => m.IsHomeDelivery, "false")
-                <label for="radiobutton2" id="lblradio2">Hämta själv</label>
+                <label for="Email" id="customeremail">E-postadress</label>
+                <input asp-for="Email" name="Email" class="form-control" id="Email" onfocus="this.value=''" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
 
-            <button type="submit" class="btn-primary">Gå vidare</button>
+            <div class="order-items">
+                <label for="Product">Välj produkt</label>
+                <select asp-for="ProductId" id="Product">
+                    <option value="1">Björkved (1m² 650SEK, säck)</option>
+                    <option value="2">Björkved (10m² 5500SEK, container)</option>
+                    <option value="4">Björkved (15m² 8250SEK, container)</option>
+                </select>
+
+                <label for="Quantity" id="customeremail">Antal</label>
+                <input asp-for="Quantity" name="Quantity" class="form-control" id="Quantity" onfocus="this.value=''" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+
+
+                <label for="Payment" id="customeremail">Betalningsmetod</label>
+                <select asp-for="Payment" name="Payment" id="Payment">
+                    <option value="Swish">Swish</option>
+                    <option value="Bank Giro">Bank Giro</option>
+                    <option value="Betala vid leverans">Betala vid leverans</option>
+                </select>
+                <div class="checks">
+                    @Html.RadioButtonFor(m => m.IsHomeDelivery, "true")
+                    <label for="radiobutton1" id="lblradio1">Hemleverans</label>
+
+                    @Html.RadioButtonFor(m => m.IsHomeDelivery, "false")
+                    <label for="radiobutton2" id="lblradio2">Hämta själv</label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" />
+                     GDPR - Jag godkänner att Ängens Gård använder min information i beställningssyfte.</label>
+                </div>
+
+                <button type="submit" class="btn-primary">Gå vidare</button>
+            </div>
+
+
+
+
 
         </fieldset>
     </form>
+</div>

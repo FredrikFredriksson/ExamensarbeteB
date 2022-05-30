@@ -24,6 +24,7 @@
         background-color: #b9b0ac;
         color: white;
         border-radius: 15px;
+        padding:6px;
     }
 
     .content-table tbody tr {
@@ -47,14 +48,15 @@
     border-radius: 15px;
     padding: 0;
     cursor: pointer;
+    color: white;
+    
 }
 
 .content-table a, .buttonLink {
-    padding: 3px;
+    padding: 6px;
     margin: 3px;
     text-decoration: none;
     font: inherit !important;
-    
 }
 
 
@@ -97,7 +99,7 @@
         text-align: center;
         font-size: 20px;
     }
-    
+
 
 .flex-container {
     display: flex;
@@ -113,7 +115,7 @@
 .flex-box {
     display: flex;
     gap: 2rem;
-    width: 60%;
+    width: 50%;
     height: auto;
 }
 

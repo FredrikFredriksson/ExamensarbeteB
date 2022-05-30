@@ -112,6 +112,10 @@
         padding: 15px 20px;
         margin: 10px 10px;
         display: flex;
+        display: inline-block;
+        text-align: center;
+        width: 150px;
+        font-size: 20px;
     }
 
 .overview a {
@@ -148,6 +152,12 @@
     .div-info p {
         font-size: 18px;
     }
+
+    .order-items{
+
+    }
+
+
     
 
 
