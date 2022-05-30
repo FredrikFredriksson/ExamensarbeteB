@@ -58,16 +58,29 @@ namespace AngensGard.Controllers
             return View(model);
         }
 
-        public IActionResult UpdateStock(AdminViewModel model)
+        public IActionResult MyAction(string submitButton, AdminViewModel model)
+        {
+            switch (submitButton)
+            {
+                case "Add": return (AddStock(model));
+                case "Sub": return (SubStock(model));
+                default: return View();
+            }
+        }
+
+        public IActionResult SubStock(AdminViewModel model)
         {
             var product = _repo.GetProductById(model.ProductId);
+            product.StockQuantity -= model.Number;
+            _repo.UpdateStockBalance(product);
 
-            
-            
-                product.StockQuantity += model.Number;
-            
-            
-
+            return RedirectToAction("StockBalance", "Admin");
+        }
+       
+        public IActionResult AddStock(AdminViewModel model)
+        {
+            var product = _repo.GetProductById(model.ProductId);         
+            product.StockQuantity += model.Number;
             _repo.UpdateStockBalance(product);
 
             return RedirectToAction("StockBalance", "Admin");
