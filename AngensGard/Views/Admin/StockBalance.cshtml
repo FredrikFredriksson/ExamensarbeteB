@@ -1,0 +1,28 @@
+﻿@model AdminViewModel
+
+<div>
+    <div class="div-products">
+
+        @foreach (var p in Model.Products)
+        {
+            <div class="div-item">
+                <form asp-controller="Admin" asp-action="UpdateStock" asp-route-id="@Model">
+                    <input type="hidden" asp-for="ProductId" value="@p.Id" />
+                    <label asp-for="Name" value="@p.Name">@p.Name</label>
+                    <input type="hidden" asp-for="Quantity" value="@p.StockQuantity" />
+                    <label>@p.StockQuantity</label>
+                    <input asp-for="Number" name="Number" class="form-control" id="Quantity" onfocus="this.value=''" />
+
+                    <button type="submit">Öka antal</button>
+
+                    <button type="submit"></button>
+                </form>
+            </div>
+        }
+
+
+
+    </div>
+
+
+</div>

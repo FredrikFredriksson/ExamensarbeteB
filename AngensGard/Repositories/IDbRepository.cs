@@ -9,6 +9,7 @@ namespace AngensGard.Repositories
     public interface IDbRepository
     {
         List<Order> GetListOfOrders();
+        List<Product> GetListOfProducts();
         Order GetOrderById(int id);
         OrderDetail GetOrderDetailsById(int id);
         List<Order> GetOrdersByDelivery(string delivery);
@@ -17,5 +18,6 @@ namespace AngensGard.Repositories
         void RemoveOrder(int id);
         void SaveOrder(OrderViewModel RegisteredOrder);
         void UpdateOrder(Order order);
+        void UpdateStockBalance(Product product);
     }
 }

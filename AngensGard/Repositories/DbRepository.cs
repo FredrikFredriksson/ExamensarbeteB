@@ -35,6 +35,13 @@ namespace AngensGard.Repositories
             }
         }
 
+        public List<Product> GetListOfProducts()
+        {
+            var data = _db.Products.ToList();
+
+            return data;
+        }
+
         public List<Order> GetListOfOrders()
         {
             var data = _db.Orders
@@ -133,6 +140,12 @@ namespace AngensGard.Repositories
         public void UpdateOrder(Order order)
         {
             _db.Entry(order).State = EntityState.Modified;      
+            _db.SaveChanges();
+        }
+
+        public void UpdateStockBalance(Product product)
+        {
+            _db.Entry(product).State = EntityState.Modified;
             _db.SaveChanges();
         }
 

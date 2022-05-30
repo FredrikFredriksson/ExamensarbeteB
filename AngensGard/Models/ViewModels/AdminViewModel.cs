@@ -10,6 +10,14 @@ namespace AngensGard.Models.ViewModels
     public class AdminViewModel
     {
         public List<Order> Orders { get; set; }
+        public List<Product> Products { get; set; }
+        public int Number { get; set; }
 
+        public string AddOrNot { get; set; }
+
+        public string Name { get; set; }
+
+        public int Quantity { get; set; }
+        public int ProductId { get; set; }
     }
 }

@@ -49,7 +49,29 @@ namespace AngensGard.Controllers
             return View(model);
         }
 
-        
+        public IActionResult StockBalance()
+        {
+            var model = new AdminViewModel()
+            {
+                Products = _repo.GetListOfProducts()
+            };
+            return View(model);
+        }
+
+        public IActionResult UpdateStock(AdminViewModel model)
+        {
+            var product = _repo.GetProductById(model.ProductId);
+
+            
+            
+                product.StockQuantity += model.Number;
+            
+            
+
+            _repo.UpdateStockBalance(product);
+
+            return RedirectToAction("StockBalance", "Admin");
+        }
 
         public IActionResult OrderDetails(int Id)
         {
