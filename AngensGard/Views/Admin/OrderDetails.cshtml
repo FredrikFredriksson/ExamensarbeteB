@@ -1,6 +1,5 @@
 ﻿@model Order
-    <link href="~/css/UserStyle.css" rel="stylesheet" />
-
+<link href="~/css/DetailsSheet.css" rel="stylesheet" />
 <h2 class="Site-header">Orderdetaljer</h2>
 <div class="overview-grid">
     <div class="overview customer-info">
@@ -48,64 +47,66 @@
     </div>
 
     <div class="overview div-buttons">
-        <a href="@Url.Action("Index", "Order")">Ändra</a>
-
-        @using (Html.BeginForm("DeleteOrder", "Admin", new { id = @Model.Id }, FormMethod.Post, true, new { onsubmit = "return confirm('Är du säker på att du vill ta bort ordern?');" }))
-        {
-            <input type="submit" value="Ta bort" class="buttonLink" />
-        }
-
+        <div class="button-item">
+            <a href="@Url.Action("Index", "Order")">Ändra</a>
+        </div>
+        <div class="button-item">
+            @using (Html.BeginForm("DeleteOrder", "Admin", new { id = @Model.Id }, FormMethod.Post, true, new { onsubmit = "return confirm('Är du säker på att du vill ta bort ordern?');" }))
+            {
+                <input type="submit" value="Ta bort" class="delete-button" />
+            }
+        </div>
     </div>
 
-    
+
 
 </div>
 
 @*<article class="card">
-    <div class="card-info">
-        <h3 class="card-title">Ordernummer: @Model.Id</h3>
+        <div class="card-info">
+            <h3 class="card-title">Ordernummer: @Model.Id</h3>
 
-        <p id="OrderDate">@Model.OrderDate.ToString("dd/MM/yyyy")</p>
+            <p id="OrderDate">@Model.OrderDate.ToString("dd/MM/yyyy")</p>
 
-        <p id="Name">@Model.Name</p>
-        <p id="Name">@Model.Address, @Model.ZipCode @Model.City</p>
-        <p id="Name">@Model.Email</p>
-        <p id="PhoneNumber">@Model.PhoneNumber</p>
+            <p id="Name">@Model.Name</p>
+            <p id="Name">@Model.Address, @Model.ZipCode @Model.City</p>
+            <p id="Name">@Model.Email</p>
+            <p id="PhoneNumber">@Model.PhoneNumber</p>
 
-        <p id="PaymentMethod">@Model.PaymentMethod</p>
-        <p id="OrderStatus">@Model.OrderStatus</p>
-    </div>
-    <div class="card-products">
-        <table class="content-table">
-            <tr>
-                <th>Produkt</th>
-                <th>Antal</th>
-                <th>Pris</th>
-            </tr>
-            <tr>
-                <td>@Model.Product.Name</td>
-                <td>@Model.ProductQuantity</td>
-                <td>@Model.Product.Price</td>
-            </tr>
-            @if (Model.Delivery == "Hemleverans")
-            {
+            <p id="PaymentMethod">@Model.PaymentMethod</p>
+            <p id="OrderStatus">@Model.OrderStatus</p>
+        </div>
+        <div class="card-products">
+            <table class="content-table">
                 <tr>
-                    <td>Hemleverans</td>
-                    <td></td>
-                    <td>250</td>
+                    <th>Produkt</th>
+                    <th>Antal</th>
+                    <th>Pris</th>
                 </tr>
+                <tr>
+                    <td>@Model.Product.Name</td>
+                    <td>@Model.ProductQuantity</td>
+                    <td>@Model.Product.Price</td>
+                </tr>
+                @if (Model.Delivery == "Hemleverans")
+                {
+                    <tr>
+                        <td>Hemleverans</td>
+                        <td></td>
+                        <td>250</td>
+                    </tr>
 
-            }
-            <tr>
-                <td>Totalt</td>
-                <td></td>
-                <td>@Model.TotalPrice</td>
-            </tr>
-        </table>
-    </div>
-    <div class="card-buttons">
-        <a href="@Url.Action("EditOrder", "Admin", @Model)">Ändra</a>
-    </div>
+                }
+                <tr>
+                    <td>Totalt</td>
+                    <td></td>
+                    <td>@Model.TotalPrice</td>
+                </tr>
+            </table>
+        </div>
+        <div class="card-buttons">
+            <a href="@Url.Action("EditOrder", "Admin", @Model)">Ändra</a>
+        </div>
 
-</article>*@
+    </article>*@
 
