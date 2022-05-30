@@ -1,45 +1,60 @@
-﻿@model AdminViewModel 
-    <link href="~/css/AdminStyleSheet.css" rel="stylesheet" />
+﻿@model AdminViewModel
+<link href="~/css/AdminSheet.css" rel="stylesheet" />
 <div class="flex-container">
     <div class="flex-box">
         <article class="admin-card">
-            <h3>Alla beställningar</h3>
-            <h2>10st</h2>
-            <a href=@Url.Action("Orders", "Admin")>Se alla beställningar</a>
+            <div class="admin-text">
+                <h3>Alla beställningar</h3>
+                <h2>10st</h2>
+            </div>
+            <div class="admin-button"><a href=@Url.Action("Orders", "Admin")>Se alla beställningar</a></div>
         </article>
         <article class="admin-card">
-            <h3>Obetalda beställningar</h3>
-            <h2>5st</h2>
-            <a href=@Url.Action("Orders", "Admin", new { status = "Obetald"})>Obetalda beställningar</a>
+            <div class="admin-text">
+                <h3>Obetalda beställningar</h3>
+                <h2>5st</h2>
+            </div>
+            <div class="admin-button"><a href=@Url.Action("Orders", "Admin", new { status = "Obetald"})>Obetalda beställningar</a></div>
+            
         </article>
         <article class="admin-card">
-            <h3>Pågående beställningar</h3>
-            <h2>2st</h2>
-            <a href=@Url.Action("Orders", "Admin", new { status = "Pågående"})>Pågående beställningar</a>
+
+            <div class="admin-text">
+                <h3>Pågående beställningar</h3>
+                <h2>2st</h2>
+            </div>
+            <div class="admin-button"><a href=@Url.Action("Orders", "Admin", new { status = "Pågående"})>Pågående beställningar</a></div>
+            
         </article>
     </div>
     <div class="flex-box">
         <article class="admin-card">
-            <h3>Klara beställningar</h3>
-            <h2>3st</h2>
-            <a href=@Url.Action("Orders", "Admin", new { status = "Klar"})>Klara beställningar</a>
+            <div class="admin-text">
+                <h3>Klara beställningar</h3>
+                <h2>3st</h2>
+            </div>
+            <div class="admin-button"><a href=@Url.Action("Orders", "Admin", new { status = "Klar"})>Klara beställningar</a></div>
+                    </article>
+        <article class="admin-card">
+            <div class="admin-text">
+                <h3>Hemleveranser</h3>
+                <h2>2st</h2>
+            </div>
+            <div class="admin-button"><a href=@Url.Action("Orders", "Admin", new { status = "Hemleverans"})>Hemleveranser</a></div>
+                       
         </article>
         <article class="admin-card">
-            <h3>Hemleveranser</h3>
-            <h2>2st</h2>
-            <a href=@Url.Action("Orders", "Admin", new { status = "Hemleverans"})>Hemleveranser</a>
-        </article>
-        <article class="admin-card">
-            <h3>Lagersaldo</h3>
-            <a href=#>Gå till lagersaldon</a>
+            <div class="admin-text">
+                <h3>Lagersaldo</h3>
+                <h2></h2>
+            </div>
+            <div class="admin-button">
+                <a href=#>Gå till lagersaldon</a>
+            </div>
         </article>
 
     </div>
 </div>
-@*<div class="clear"></div>
-    Page @(Model.PageCoutn < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
-    <div class="divpagination">
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
-    </div>*@
+
 
 

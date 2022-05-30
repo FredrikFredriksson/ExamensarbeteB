@@ -1,0 +1,42 @@
+﻿.div-header, footer {
+    display: none !important;
+}
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 25%;
+    bottom: 50%;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    background: #f2f2f2;
+    border-radius: 15px;
+}
+.form-group{
+    padding: 10px;
+    display: flex;
+    flex-direction: column; 
+    
+}
+
+    .form-group input {
+        padding: 17px;        
+        border-radius: 15px;
+        border: solid 0.1px;
+    }
+    .form-group label{
+        font-size: 20px;
+        padding: 10px;
+    }
+.col-md-12 button {
+    border-radius: 15px;
+    text-decoration: none;
+    background-color: #b9b0ac;
+    color: white;
+    padding: 15px 20px;
+    margin: 10px;
+    border: none;
+}

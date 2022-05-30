@@ -124,3 +124,7 @@
         flex-direction: column;
     }
 }
+
+footer{
+    display: none !important;
+}

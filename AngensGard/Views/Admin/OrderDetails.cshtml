@@ -1,6 +1,67 @@
 ﻿@model Order
-<link href="~/css/AdminSheet.css" rel="stylesheet" />
-<article class="card">
+    <link href="~/css/UserStyle.css" rel="stylesheet" />
+
+<h2 class="Site-header">Orderdetaljer</h2>
+<div class="overview-grid">
+    <div class="overview customer-info">
+        <h3>Kundens uppgifter</h3>
+        <p id="Name">@Model.Name</p>
+        <p id="Name">@Model.Address, @Model.ZipCode @Model.City</p>
+        <p id="Name">@Model.Email</p>
+        <p id="PhoneNumber">@Model.PhoneNumber</p>
+    </div>
+    <div class="overview payment-info">
+        <h3>Betalning & Status</h3>
+        <p>@Model.PaymentMethod</p>
+        <p>@Model.OrderStatus</p>
+    </div>
+    <div class="overview delivery-info">
+        <h3>Leveransmetod</h3>
+        <p>@Model.Delivery</p>
+    </div>
+    <div class="overview product-info grid-row-span-2">
+        <table class="content-table">
+            <tr>
+                <th>Produkt</th>
+                <th>Antal</th>
+                <th>Pris</th>
+            </tr>
+            <tr>
+                <td>@Model.Product.Name</td>
+                <td>@Model.ProductQuantity</td>
+                <td>@Model.Product.Price</td>
+            </tr>
+            @if (Model.Delivery == "Hemleverans")
+            {
+                <tr>
+                    <td>Hemleverans</td>
+                    <td></td>
+                    <td>250</td>
+                </tr>
+            }
+            <tr>
+                <td>Totalt</td>
+                <td></td>
+                <td>@Model.TotalPrice</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="overview div-buttons">
+        <a href="@Url.Action("Index", "Order")">Ändra</a>
+
+        @using (Html.BeginForm("DeleteOrder", "Admin", new { id = @Model.Id }, FormMethod.Post, true, new { onsubmit = "return confirm('Är du säker på att du vill ta bort ordern?');" }))
+        {
+            <input type="submit" value="Ta bort" class="buttonLink" />
+        }
+
+    </div>
+
+    
+
+</div>
+
+@*<article class="card">
     <div class="card-info">
         <h3 class="card-title">Ordernummer: @Model.Id</h3>
 
@@ -42,6 +103,9 @@
             </tr>
         </table>
     </div>
-    <a href="@Url.Action("EditOrder", "Admin", @Model)">Ändra</a>
-</article>
+    <div class="card-buttons">
+        <a href="@Url.Action("EditOrder", "Admin", @Model)">Ändra</a>
+    </div>
+
+</article>*@
 

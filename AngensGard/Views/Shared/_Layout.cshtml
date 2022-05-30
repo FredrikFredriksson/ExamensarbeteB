@@ -13,10 +13,14 @@
     <div class="div-container">
         <div class="div-header">
             <img src="Images/logo.png" />
+
+
+
             <div class="div-topmenu">
 
                 @{ if (User.IsInRole("Admin"))
                     {
+
                         <ul>
                             <li>
                                 <a asp-area="" asp-controller="Admin" asp-action="Index">Hem</a>
@@ -36,23 +40,32 @@
 
                     else
                     {
-            <ul>
-                <li>
-                    <a asp-area="" asp-controller="Home" asp-action="Index">Om Ängens Gård</a>
-                </li>
-                <li>
-                    <a asp-area="" asp-controller="Home" asp-action="Info">Vedförsäljning</a>
-                </li>
-                <li>
-                    <a asp-area="" asp-controller="Order" asp-action="Index">Beställ ved</a>
-                </li>
+                        <ul>
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Index">Om Ängens Gård</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Info">Vedförsäljning</a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Order" asp-action="Index">Beställ ved</a>
+                            </li>
 
-            </ul>
+                        </ul>
                     }
 
                 }
 
             </div><!-----div-topmenu-->
+            @{ if (User.IsInRole("Admin"))
+                {
+                    <div class="admin-dashboard">
+                        <p>Admin panel</p>
+                    </div>
+                }
+
+            }
+
         </div><!--div-header-->
         <div class="clear"></div>
         

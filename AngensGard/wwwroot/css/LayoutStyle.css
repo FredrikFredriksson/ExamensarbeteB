@@ -138,3 +138,10 @@ footer {
     margin-top: auto;
     width: 100%;
 }
+
+.admin-dashboard p {
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 18px;
+}
