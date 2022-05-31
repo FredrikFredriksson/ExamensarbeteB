@@ -194,13 +194,17 @@ footer {
 }
 
 
-
     .overview:nth-child(2) {
         grid-row-start: 3;
     }
 
     .overview:nth-child(3) {
         grid-row-start: 2
+    }
+    .overview:nth-child(6){
+        grid-column: span 2;
+        display: flex;
+        justify-content: space-evenly;
     }
 
 

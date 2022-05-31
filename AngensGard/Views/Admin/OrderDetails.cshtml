@@ -10,9 +10,8 @@
         <p id="PhoneNumber">@Model.PhoneNumber</p>
     </div>
     <div class="overview payment-info">
-        <h3>Betalning & Status</h3>
+        <h3>Betalning</h3>
         <p>@Model.PaymentMethod</p>
-        <p>@Model.OrderStatus</p>
     </div>
     <div class="overview delivery-info">
         <h3>Leveransmetod</h3>
@@ -45,6 +44,10 @@
             </tr>
         </table>
     </div>
+    <div class="overview div-status">
+        <h3>Status</h3>
+        <p>@Model.OrderStatus   -   @Model.PaymentStatus</p>
+    </div>
 
     <div class="overview div-buttons">
         <div class="button-item">
@@ -57,9 +60,6 @@
             }
         </div>
     </div>
-
-
-
 </div>
 
 @*<article class="card">

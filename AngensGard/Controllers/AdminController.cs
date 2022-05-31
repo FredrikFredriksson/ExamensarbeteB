@@ -34,6 +34,27 @@ namespace AngensGard.Controllers
             return View();
         }
         
+
+        public IActionResult OrderCreatedMessage(OrderViewModel order)
+        {
+            order.Product = _repo.GetProductById(order.ProductId);
+            if (order.IsHomeDelivery)
+            {
+                order.Delivery = "Hemleverans";
+                order.TotalPrice += 250;
+            }
+            else
+            {
+                order.Delivery = "Hämta själv";
+            }
+
+            order.ProductPrice = order.Product.Price * order.Quantity;
+            order.TotalPrice += order.ProductPrice;
+
+            var savedOrder = _repo.SaveOrder(order);
+
+            return View(savedOrder);
+        }
        
         public IActionResult Orders(string status)
         {

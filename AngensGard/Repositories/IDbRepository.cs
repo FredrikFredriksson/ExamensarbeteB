@@ -16,7 +16,7 @@ namespace AngensGard.Repositories
         List<Order> GetOrdersByStatus(string status);
         Product GetProductById(int id);
         void RemoveOrder(int id);
-        void SaveOrder(OrderViewModel RegisteredOrder);
+        Order SaveOrder(OrderViewModel RegisteredOrder);
         void UpdateOrder(Order order);
         void UpdateStockBalance(Product product);
     }

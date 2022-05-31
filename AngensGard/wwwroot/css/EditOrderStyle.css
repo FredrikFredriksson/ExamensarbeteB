@@ -13,6 +13,10 @@
         border: none;
     }
 
+    .order-container button:hover{
+        cursor: pointer;
+    }
+
 form {
     margin: 30px;
     padding: 20px;

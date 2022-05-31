@@ -62,7 +62,7 @@ namespace AngensGard.Repositories
         /// Saves order to database
         /// </summary>
         /// <param name="RegisteredOrder"></param>
-        public async void SaveOrder(OrderViewModel RegisteredOrder)
+        public Order SaveOrder(OrderViewModel RegisteredOrder)
         {
             var order = new Order
             {
@@ -99,8 +99,9 @@ namespace AngensGard.Repositories
             //}
 
 
-            await _db.AddAsync(order);
+            _db.AddAsync(order);
             _db.SaveChanges();
+            return order;
         }
 
         /// <summary>

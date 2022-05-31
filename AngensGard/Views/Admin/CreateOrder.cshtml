@@ -2,7 +2,7 @@
 
 <link href="~/css/OrderStyle.css" rel="stylesheet" />
 <div class="form-container">
-    <form asp-controller="Order" asp-action="Overview" asp-route-id="@Model" method="post" enctype="multipart/form-data" id="orderForm">
+    <form asp-controller="Admin" asp-action="OrderCreatedMessage" asp-route-id="@Model" method="post" enctype="multipart/form-data" id="orderForm">
         <fieldset>
             <legend>Vedbeställning</legend>
 
@@ -72,16 +72,9 @@
                         <label for="Message" id="customerMessage">Meddelande</label>
                         <textarea asp-for="Message" name="Message"></textarea>
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" />
-                            GDPR - Jag godkänner att Ängens Gård använder min information i beställningssyfte.
-                        </label>
-                    </div>
                     <div class="order button">
                         <a href=@Url.Action("Index", "Home")>Gå tillbaka</a>
-                        <button type="submit" class="btn-primary">Gå vidare</button>
-
+                        <button type="submit" class="btn-primary">Lägg till</button>
                     </div>
 
                 </div>
