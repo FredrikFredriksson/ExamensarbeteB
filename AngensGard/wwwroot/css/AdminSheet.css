@@ -190,9 +190,7 @@ footer {
     background: #f2f2f2;
 }
 
-    .overview.product-info.grid-row-span-2 {
-        paddin
-    }
+    
 
     .overview:nth-child(2) {
         grid-row-start: 3;

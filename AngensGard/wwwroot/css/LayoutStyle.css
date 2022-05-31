@@ -26,9 +26,9 @@ ul {
         padding: 20px;
         align-items: center;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         height: 65px;
-        gap: 10rem;
+        
     }
 
         .div-container .div-header img {
