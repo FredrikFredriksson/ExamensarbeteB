@@ -89,8 +89,8 @@ namespace AngensGard.Controllers
         {
             switch (submitButton)
             {
-                case "Add": return (AddStock(model));
-                case "Sub": return (SubStock(model));
+                case "Lägg till antal": return (AddStock(model));
+                case "Ta bort antal": return (SubStock(model));
                 default: return View();
             }
         }

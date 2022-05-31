@@ -1,21 +1,32 @@
 ﻿@model AdminViewModel
+<link href="~/css/AdminSheet.css" rel="stylesheet" />
 
-<div class="div-products">
-
+<div class="div-products-container">
     @foreach (var p in Model.Products)
     {
+        <div class="div-products-item">
+            <article class="product-card">
+                <form asp-controller="Admin" asp-action="MyAction">
+                    <input type="hidden" asp-for="ProductId" value="@p.Id" />
+                    <input type="hidden" asp-for="Quantity" value="@p.StockQuantity" />
+                    <div class="product-card-header">
+                        <h2 asp-for="Name" value="@p.Name">@p.Name</h2>
+                    </div>
+                    <div class="product-card-quantity">
+                        <label>@p.StockQuantity</label>
+                        <label> i lager</label>
 
-        <div class="div-item">
-            <form asp-controller="Admin" asp-action="MyAction">
-                <input type="hidden" asp-for="ProductId" value="@p.Id" />
-                <label asp-for="Name" value="@p.Name">@p.Name</label>
-                <input type="hidden" asp-for="Quantity" value="@p.StockQuantity" />
-                <label>@p.StockQuantity</label>
-                <input asp-for="Number" name="Number" class="form-control" id="Quantity" onfocus="this.value=''" />
-
-                <input type="submit" name="submitButton" value="Add" />
-                <input type="submit" name="submitButton" value="Sub" />
-            </form>
+                    </div>
+                    <div class="product-card-amount">
+                    <input asp-for="Number" name="Number" class="input-amount" id="Quantity" type="text" />
+                    </div>
+                    
+                    <div class="product-card-buttons">
+                        <input type="submit" name="submitButton" value="Lägg till antal" class="product-card-button" />
+                        <input type="submit" name="submitButton" value="Ta bort antal" class="product-card-button"  />
+                    </div>
+                </form>
+            </article>
         </div>
     }
 

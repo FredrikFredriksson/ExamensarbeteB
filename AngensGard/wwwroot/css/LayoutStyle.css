@@ -4,7 +4,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: 'Baskerville Old Face'
+    font-family: Cambria;
 }
 
 ul {
@@ -141,7 +141,8 @@ footer {
 
 .admin-dashboard p {
     text-decoration: none;
-    color: #ffffff;
+    color: #FFFFFF;
     text-transform: uppercase;
     font-size: 18px;
+    font-weight: bold;
 }

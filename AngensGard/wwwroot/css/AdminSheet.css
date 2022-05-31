@@ -190,9 +190,9 @@ footer {
     background: #f2f2f2;
 }
 
-.overview.product-info.grid-row-span-2{
-    paddin
-}
+    .overview.product-info.grid-row-span-2 {
+        paddin
+    }
 
     .overview:nth-child(2) {
         grid-row-start: 3;
@@ -238,10 +238,10 @@ footer {
         text-align: center;
         font-size: 20px;
         border: none;
-        font-family: 'Baskerville Old Face' !important;
+        font-family: Cambria !important;
     }
 
-.div-message.flex-container {
+.div-message-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -249,6 +249,138 @@ footer {
     gap: 3rem;
 }
 
-.message-header h3{
+.message-header h3 {
     font-size: 25px;
+}
+
+.message-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+}
+
+    .message-buttons a, .msg-btn {
+        border-radius: 15px;
+        text-decoration: none;
+        background-color: #b9b0ac;
+        color: white;
+        padding: 15px 20px;
+        margin: 10px 10px;
+        display: flex;
+        text-align: center;
+        font-size: 20px;
+        border: none;
+        font-family: Cambria !important;
+        justify-content: center;
+    }
+
+        .msg-btn:hover, .message-buttons a:hover {
+            cursor: pointer;
+        }
+
+
+
+
+.add-button {
+}
+
+.sub-button {
+}
+.message-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.div-products-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin: 50px;
+}
+
+
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+}
+
+
+
+    .product-card input {
+        border-radius: 5px;
+        border: none;
+        width: 30px;
+        padding: 5px;
+    }
+
+    .product-card label {
+    }
+
+.div-products-item {
+    border: solid;
+    width: 400px;
+    height: 220px;
+    width: 400px;
+    height: 250px;
+    background: #697566;
+    color: white;
+    border-radius: 15px;
+}
+.product-card form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 1.2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-products-item h2{
+
+}
+
+.div-products-item label{
+
+}
+
+.input-amout {
+
+}
+
+input.product-card-button {
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+    width: 150px;
+}
+
+
+
+.product-card-header {
+}
+
+.product-card-quantity{
+
+}
+
+.product-card-amount{
+
+}
+
+.product-card-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
 }

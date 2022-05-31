@@ -1,4 +1,5 @@
 ﻿@model AdminViewModel
+
 <link href="~/css/AdminSheet.css" rel="stylesheet" />
 <div class="flex-container">
     <div class="flex-box">
@@ -15,7 +16,7 @@
                 <h2>5st</h2>
             </div>
             <div class="admin-button"><a href=@Url.Action("Orders", "Admin", new { status = "Obetald"})>Obetalda beställningar</a></div>
-            
+
         </article>
         <article class="admin-card">
 
@@ -24,7 +25,7 @@
                 <h2>2st</h2>
             </div>
             <div class="admin-button"><a href=@Url.Action("Orders", "Admin", new { status = "Pågående"})>Pågående beställningar</a></div>
-            
+
         </article>
     </div>
     <div class="flex-box">

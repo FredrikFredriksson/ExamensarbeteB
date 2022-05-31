@@ -1,5 +1,5 @@
 ﻿@model OrderViewModel
-    <link href="~/css/UserStyle.css" rel="stylesheet" />
+<link href="~/css/UserStyle.css" rel="stylesheet" />
 <div class="confirm-text">
     <h2 class="Site-header">Tack för din beställning!</h2>
 
@@ -9,7 +9,7 @@
     <p>Du swishar totalsumman för din beställning till nummer 123456789, mottagaren heter Jonas Fredriksson. Skriv ditt ordernummer i meddelandefältet när du swishar pengarna. </p>
     <h4>Bankgiro:</h4>
     <p>Du skickar totalsumman för din beställning till bankgiro: XXXX-XXXX. Skriv ditt ordernummer i meddelandefältet för överföringen.</p>
-    
+
 </div>
 <div class="overview-grid">
     <div class="overview customer-info">
@@ -54,7 +54,9 @@
             </tr>
         </table>
     </div>
-
+    <div class="overview div-buttons">
+        <a href="@Url.Action("Index", "Home")">Stäng</a>
+    </div>
 </div>
 
 

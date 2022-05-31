@@ -1,6 +1,6 @@
 ﻿@model Order
+    <link href="~/css/AdminSheet.css" rel="stylesheet" />
 
-<link href="~/css/AdminStyle.css" rel="stylesheet" />
 <div class="div-message-container">
     <div class="message-header">
         <h3>Beställningen är tillagd</h3>
@@ -8,7 +8,7 @@
     <div class="message-buttons">
         @using (Html.BeginForm("DeleteOrder", "Admin", new { id = Model.Id }, FormMethod.Post, true, new { onsubmit = "return confirm('Är du säker på att du vill ta bort ordern?');" }))
         {
-            <input type="submit" value="Ta bort" />
+            <input type="submit" value="Ta bort" class="msg-btn" />
         }
         <a href=@Url.Action("Index", "Admin")>Ok</a>
     </div>
