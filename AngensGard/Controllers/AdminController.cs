@@ -14,7 +14,7 @@ using AngensGard.Models.Pocos;
 namespace AngensGard.Controllers
 {
     [Authorize(Roles = "Admin")]
-    
+
     public class AdminController : Controller
     {
         private readonly IDbRepository _repo;
@@ -25,15 +25,41 @@ namespace AngensGard.Controllers
         }
         public IActionResult Index()
         {
-            
-            return View();
+            var orders = _repo.GetListOfOrders();
+
+            var model = new AdminViewModel()
+            {
+                AllOrders = 0,
+                UnPaidOrders = 0,
+                OnGoingOrders = 0,
+                HomeDeliveries = 0
+            };
+
+            foreach (var o in orders)
+            {
+                model.AllOrders += 1;
+                if (o.PaymentStatus == "Obetald")
+                {
+                    model.UnPaidOrders += 1;
+                }
+                if (o.OrderStatus == "Pågående")
+                {
+                    model.OnGoingOrders += 1;
+                }
+                if (o.Delivery == "Hemleverans" && o.OrderStatus != "Klar")
+                {
+                    model.HomeDeliveries += 1;
+                }
+            }
+
+            return View(model);
         }
 
         public IActionResult CreateOrder()
         {
             return View();
         }
-        
+
 
         public IActionResult OrderCreatedMessage(OrderViewModel order)
         {
@@ -55,7 +81,7 @@ namespace AngensGard.Controllers
 
             return View(savedOrder);
         }
-       
+
         public IActionResult Orders(string status)
         {
             var model = new AdminViewModel();
@@ -66,11 +92,16 @@ namespace AngensGard.Controllers
                     model.Orders = _repo.GetOrdersByDelivery(status);
                     return View(model);
                 }
+                else if (status == "Obetald")
+                {
+                    model.Orders = _repo.GetOrdersByPaymentStatus(status);
+                    return View(model);
+                }
                 model.Orders = _repo.GetOrdersByStatus(status);
             }
             else
             {
-                model.Orders = _repo.GetListOfOrders();                
+                model.Orders = _repo.GetListOfOrders();
             }
 
             return View(model);
@@ -103,10 +134,10 @@ namespace AngensGard.Controllers
 
             return RedirectToAction("StockBalance", "Admin");
         }
-       
+
         public IActionResult AddStock(AdminViewModel model)
         {
-            var product = _repo.GetProductById(model.ProductId);         
+            var product = _repo.GetProductById(model.ProductId);
             product.StockQuantity += model.Number;
             _repo.UpdateStockBalance(product);
 
@@ -119,7 +150,7 @@ namespace AngensGard.Controllers
             return View(model);
         }
 
-        
+
         public IActionResult EditOrder(int id)
         {
             var model = _repo.GetOrderById(id);
@@ -141,7 +172,7 @@ namespace AngensGard.Controllers
             return RedirectToAction("Orders", "Admin", order);
         }
 
-        
+
         public IActionResult DeleteOrder(int id)
         {
             _repo.RemoveOrder(id);

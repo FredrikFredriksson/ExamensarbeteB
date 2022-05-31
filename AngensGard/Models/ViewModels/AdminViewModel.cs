@@ -19,5 +19,10 @@ namespace AngensGard.Models.ViewModels
 
         public int Quantity { get; set; }
         public int ProductId { get; set; }
+
+        public int AllOrders { get; set; }
+        public int UnPaidOrders { get; set; }
+        public int OnGoingOrders { get; set; }
+        public int HomeDeliveries { get; set; }
     }
 }

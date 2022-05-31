@@ -6,14 +6,14 @@
         <article class="admin-card">
             <div class="admin-text">
                 <h3>Alla beställningar</h3>
-                <h2>10st</h2>
+                <h2>@Model.AllOrders st</h2>
             </div>
             <div class="admin-button"><a href=@Url.Action("Orders", "Admin")>Se alla beställningar</a></div>
         </article>
         <article class="admin-card">
             <div class="admin-text">
                 <h3>Obetalda beställningar</h3>
-                <h2>5st</h2>
+                <h2>@Model.UnPaidOrders st</h2>
             </div>
             <div class="admin-button"><a href=@Url.Action("Orders", "Admin", new { status = "Obetald"})>Obetalda beställningar</a></div>
 
@@ -22,7 +22,7 @@
 
             <div class="admin-text">
                 <h3>Pågående beställningar</h3>
-                <h2>2st</h2>
+                <h2>@Model.OnGoingOrders st</h2>
             </div>
             <div class="admin-button"><a href=@Url.Action("Orders", "Admin", new { status = "Pågående"})>Pågående beställningar</a></div>
 
@@ -33,7 +33,7 @@
         <article class="admin-card">
             <div class="admin-text">
                 <h3>Hemleveranser</h3>
-                <h2>2st</h2>
+                <h2>@Model.HomeDeliveries st</h2>
             </div>
             <div class="admin-button"><a href=@Url.Action("Orders", "Admin", new { status = "Hemleverans"})>Hemleveranser</a></div>
 
@@ -44,7 +44,7 @@
                 <h2></h2>
             </div>
             <div class="admin-button">
-                <a href=#>Gå till lagersaldon</a>
+                <a href=@Url.Action("StockBalance", "Admin")>Gå till lagersaldon</a>
             </div>
         </article>
         <article class="admin-card">

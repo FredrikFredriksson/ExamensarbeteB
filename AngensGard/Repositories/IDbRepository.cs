@@ -13,6 +13,7 @@ namespace AngensGard.Repositories
         Order GetOrderById(int id);
         OrderDetail GetOrderDetailsById(int id);
         List<Order> GetOrdersByDelivery(string delivery);
+        List<Order> GetOrdersByPaymentStatus(string status);
         List<Order> GetOrdersByStatus(string status);
         Product GetProductById(int id);
         void RemoveOrder(int id);

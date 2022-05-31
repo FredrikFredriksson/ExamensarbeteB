@@ -1,4 +1,6 @@
-﻿
+﻿h1, h2, h3 {
+    font-weight: normal;
+}
 
 .home-container {
     display: flex;
@@ -26,9 +28,10 @@
     font-size: 30px;
 }
 
-.home-header h1{
-    font-weight: normal !important;
-}
+    .home-header h1 {
+        font-weight: normal !important;
+    }
+
 .content-container {
     display: flex;
     max-width: 50%;
@@ -42,9 +45,17 @@
     max-width: 50%
 }
 
-.content-text p {
-    font-size: 25px;
-}
+    .content-text p {
+        font-size: 25px;
+    }
+
+    .content-container h3 { 
+        font-size: 25px;
+    }
+
+    .content-container h1 {
+        font-size: 30px;
+    }
 
 .contact-container {
     display: flex;
@@ -60,6 +71,7 @@
     background-color: #f2f2f2;
     width: 100%;
 }
+
 .content-container p {
     font-size: 20px;
 }
@@ -67,4 +79,3 @@
 .contact-container p {
     font-size: 20px;
 }
-

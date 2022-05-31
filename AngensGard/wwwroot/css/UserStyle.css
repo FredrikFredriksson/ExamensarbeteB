@@ -144,18 +144,30 @@
 }
 
     .div-info h1 {
-        font-size: 50px;
+        font-weight: normal !important;
+        font-size: 35px;
     }
 
     .div-info h3 {
-        font-size: 30px;
+        font-size: 25px;
+        font-weight: normal !important;
     }
 
     .div-info p {
-        font-size: 18px;
+        font-size: 20px;
     }
 
-    
+
+.div-top-image {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    width: 100%;
+    background-image: url('../Images/ved-forsaljning-angens-gard.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: #8b9788;
+}
 
 
     

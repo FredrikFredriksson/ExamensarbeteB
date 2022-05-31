@@ -190,27 +190,29 @@ footer {
     background: #f2f2f2;
 }
 
-    
+input.product-card-button:hover {
+    cursor: pointer;
+}
 
-    .overview:nth-child(2) {
-        grid-row-start: 3;
-    }
+.overview:nth-child(2) {
+    grid-row-start: 3;
+}
 
-    .overview:nth-child(3) {
-        grid-row-start: 2
-    }
+.overview:nth-child(3) {
+    grid-row-start: 2
+}
 
 
-    .overview h3 {
-        background-color: #8b9788;
-        color: white;
-        margin-top: 0;
-        padding: 15px;
-    }
+.overview h3 {
+    background-color: #8b9788;
+    color: white;
+    margin-top: 0;
+    padding: 15px;
+}
 
-    .overview p {
-        padding-left: 10px;
-    }
+.overview p {
+    padding-left: 10px;
+}
 
 .grid-row-span-2 {
     grid-row: span 2;
@@ -284,6 +286,7 @@ footer {
 
 .sub-button {
 }
+
 .message-header {
     display: flex;
     justify-content: center;
@@ -308,7 +311,6 @@ footer {
     justify-content: center;
     align-items: center;
     height: 100%;
-    
 }
 
 
@@ -333,6 +335,7 @@ footer {
     color: white;
     border-radius: 15px;
 }
+
 .product-card form {
     display: flex;
     flex-direction: column;
@@ -343,16 +346,13 @@ footer {
     align-items: center;
 }
 
-.div-products-item h2{
-
+.div-products-item h2 {
 }
 
-.div-products-item label{
-
+.div-products-item label {
 }
 
 .input-amout {
-
 }
 
 input.product-card-button {
@@ -363,18 +363,11 @@ input.product-card-button {
     width: 150px;
 }
 
+    input.product-card-button:hover {
+        cursor: pointer;
+    }
 
 
-.product-card-header {
-}
-
-.product-card-quantity{
-
-}
-
-.product-card-amount{
-
-}
 
 .product-card-buttons {
     width: 100%;

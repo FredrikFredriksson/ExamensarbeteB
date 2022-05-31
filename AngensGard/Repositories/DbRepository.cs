@@ -58,6 +58,8 @@ namespace AngensGard.Repositories
             return data.FirstOrDefault();
         }
 
+        
+
         /// <summary>
         /// Saves order to database
         /// </summary>
@@ -163,6 +165,14 @@ namespace AngensGard.Repositories
         public List<Order> GetOrdersByDelivery(string delivery)
         {
             var data = _db.Orders.Where(x => x.Delivery == delivery && x.OrderStatus != "Klar")
+                .Include(x => x.Product);
+
+            return data.ToList();
+        }
+
+        public List<Order> GetOrdersByPaymentStatus(string status)
+        {
+            var data = _db.Orders.Where(x => x.PaymentStatus == status)
                 .Include(x => x.Product);
 
             return data.ToList();
