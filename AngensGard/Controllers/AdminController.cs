@@ -29,6 +29,12 @@ namespace AngensGard.Controllers
             return View();
         }
 
+        public IActionResult CreateOrder()
+        {
+            return View();
+        }
+        
+       
         public IActionResult Orders(string status)
         {
             var model = new AdminViewModel();

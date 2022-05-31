@@ -48,7 +48,7 @@
 
     <div class="overview div-buttons">
         <div class="button-item">
-            <a href="@Url.Action("Index", "Order")">Ändra</a>
+            <a href="@Url.Action("EditOrder", "Admin", new { id = @Model.Id})">Ändra</a>
         </div>
         <div class="button-item">
             @using (Html.BeginForm("DeleteOrder", "Admin", new { id = @Model.Id }, FormMethod.Post, true, new { onsubmit = "return confirm('Är du säker på att du vill ta bort ordern?');" }))

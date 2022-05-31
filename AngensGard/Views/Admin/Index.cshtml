@@ -28,20 +28,14 @@
         </article>
     </div>
     <div class="flex-box">
-        <article class="admin-card">
-            <div class="admin-text">
-                <h3>Klara beställningar</h3>
-                <h2>3st</h2>
-            </div>
-            <div class="admin-button"><a href=@Url.Action("Orders", "Admin", new { status = "Klar"})>Klara beställningar</a></div>
-                    </article>
+
         <article class="admin-card">
             <div class="admin-text">
                 <h3>Hemleveranser</h3>
                 <h2>2st</h2>
             </div>
             <div class="admin-button"><a href=@Url.Action("Orders", "Admin", new { status = "Hemleverans"})>Hemleveranser</a></div>
-                       
+
         </article>
         <article class="admin-card">
             <div class="admin-text">
@@ -51,6 +45,13 @@
             <div class="admin-button">
                 <a href=#>Gå till lagersaldon</a>
             </div>
+        </article>
+        <article class="admin-card">
+            <div class="admin-text">
+                <h3>Lägg till beställning</h3>
+                <h2></h2>
+            </div>
+            <div class="admin-button"><a href=@Url.Action("CreateOrder", "Admin")>+ Skapa beställning</a></div>
         </article>
 
     </div>

@@ -1,14 +1,14 @@
 ﻿@model Order
 
-<link href="~/css/EditOrderSheet.css" rel="stylesheet" />
+<link href="~/css/EditOrderStyle.css" rel="stylesheet" />
 <div class="order-container">
     <form asp-controller="Admin" asp-action="EditOrder" asp-route-id="@Model" method="post" enctype="multipart/form-data" id="orderForm">
         <fieldset>
             <legend>Ändra order</legend>
             <div class="order-grid">
-                <div class="order-grid header"><h3>Ordernummer: @Model.Id</h3></div>
+                <div class="order grid-header"><h3>Ordernummer: @Model.Id</h3></div>
 
-                <div class="order grid-info">
+                <div class="order grid-info-1">
                     <input type="hidden" value="@Model.Id" asp-for="Id" />
                     <input type="hidden" value="@Model.OrderDate" asp-for="OrderDate" />
 
@@ -26,11 +26,8 @@
                     <input asp-for="ZipCode" name="ZipCode" class="form-control" id="ZipCode" value="@Model.ZipCode" />
                     <span asp-validation-for="ZipCode" class="text-danger"></span>
 
-
-                    <label for="City" id="customerCity">Ort</label>
-                    <input asp-for="City" name="City" class="form-control" id="City" value="@Model.City" />
-                    <span asp-validation-for="City" class="text-danger"></span>
-
+                </div>
+                <div class="order grid-info-2">
                     <label for="Email" id="customeremail">E-postadress</label>
                     <input asp-for="Email" name="Email" class="form-control" id="Email" value="@Model.Email" />
                     <span asp-validation-for="Email" class="text-danger"></span>
@@ -38,6 +35,10 @@
                     <label for="PhoneNumber" id="customerPhoneNumber">Telefonnummer</label>
                     <input asp-for="PhoneNumber" name="PhoneNumber" class="form-control" id="PhoneNumber" value="@Model.PhoneNumber.ToString()" />
                     <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+                    <label for="City" id="customerCity">Ort</label>
+                    <input asp-for="City" name="City" class="form-control" id="City" value="@Model.City" />
+                    <span asp-validation-for="City" class="text-danger"></span>
                 </div>
 
                 <div class="order product-info">
@@ -60,27 +61,54 @@
                         <option value="Betala vid leverans">Betala vid leverans</option>
                     </select>
 
-                    <label for="Status" id="OrderStatus">Status</label>
-                    <select asp-for="OrderStatus" name="OrderStatus" id="Status">
-                        <option value="Pågående">Pågående</option>
-                        <option value="Obetald">Obetald</option>
-                        <option value="Klar">Klar</option>
-                    </select>
-                    <br />
                 </div>
 
                 <div class="order checks">
-                    @Html.RadioButtonFor(m => m.Delivery, "Hemleverans")
-                    <label for="radiobutton1" id="lblradio1">Hemleverans</label>
 
-                    @Html.RadioButtonFor(m => m.Delivery, "Hämta själv")
-                    <label for="radiobutton2" id="lblradio2">Hämta själv</label>
+                    <div class="checks-item">
+                        @Html.RadioButtonFor(m => m.Delivery, "Hemleverans")
+                        <label for="radiobutton1" id="lblradio1">Hemleverans</label>
+
+                        @Html.RadioButtonFor(m => m.Delivery, "Hämta själv")
+                        <label for="radiobutton2" id="lblradio2">Hämta själv</label>
+                    </div>
+
+
+                    <div class="checks-item">
+                        @Html.RadioButtonFor(m => m.PaymentStatus, "Betald")
+                        <label for="radiobutton1" id="lblradio1">Betald</label>
+
+                        @Html.RadioButtonFor(m => m.PaymentStatus, "Obetald")
+                        <label for="radiobutton2" id="lblradio2">Obetald</label>
+                    </div>
+
+
+                    <div class="checks-item">
+                        @Html.RadioButtonFor(m => m.OrderStatus, "Klar")
+                        <label for="radiobutton1" id="lblradio1">Klar</label>
+
+                        @Html.RadioButtonFor(m => m.OrderStatus, "Pågående")
+                        <label for="radiobutton2" id="lblradio2">Pågående</label>
+                    </div>
+
+                </div>
+
+                <div class="order message">
+                    <label for="Message" id="customermessage">Meddelande</label>
+                    <textarea asp-for="Message" name="Message" value="@Model.Message">
+
+                    </textarea>
+                </div>
+
+                <div class="order button">
+                    <a href=@Url.Action("Orders", "Admin")>Gå tillbaka</a>
+                    <button type="submit" class="btn-primary">Spara</button>
                 </div>
             </div>
 
-            
-            <div class="order-button"><button type="submit" class="btn-primary">Spara</button></div>
-            
+
+
+
         </fieldset>
     </form>
 </div>

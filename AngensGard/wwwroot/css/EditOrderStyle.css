@@ -29,11 +29,11 @@ fieldset {
     background-color: #f2f2f2;
 }
 
-fieldset select {
-    padding: 10px;
-    border-radius: 5px;
-    width: 220px;
-}
+    fieldset select {
+        padding: 10px;
+        border-radius: 5px;
+        width: 220px;
+    }
 
 .form-control {
     border-radius: 5px;
@@ -156,4 +156,24 @@ input[type=radio]:first-of-type {
     grid-column: span 2;
     justify-content: center;
     display: flex;
+}
+
+.order.button {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+    .order.button a {
+        border-radius: 15px;
+        text-decoration: none;
+        background-color: #b9b0ac;
+        color: white;
+        padding: 15px 20px;
+        margin: 10px 10px;
+        border: none;
+    }
+
+.checks-item{
+    margin-top: 30px;
 }

@@ -80,7 +80,8 @@ namespace AngensGard.Repositories
                 ProductQuantity = RegisteredOrder.Quantity,
                 OrderStatus = "Pågående",
                 Delivery = RegisteredOrder.Delivery,
-                PaymentStatus = "Obetald"
+                PaymentStatus = "Obetald",
+                Message = RegisteredOrder.Message
             };
             order.Product.StockQuantity -= RegisteredOrder.Quantity;
 

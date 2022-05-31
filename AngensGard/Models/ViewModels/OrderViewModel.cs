@@ -29,6 +29,8 @@ namespace AngensGard.Models.ViewModels
 
         public int ProductPrice { get; set; }
 
+        public string Message { get; set; }
+
         public OrderViewModel()
         {           
             SetDate();

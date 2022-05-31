@@ -1,20 +1,23 @@
-﻿.form-container{
-    display: flex;
+﻿.form-container {
     justify-content: center;
     align-items: center;
-    height: 700px;
-}
-.form-container button {
-    border-radius: 15px;
-    text-decoration: none;
-    background-color: #b9b0ac;
-    color: white;
-    padding: 15px 20px;
-    margin: 10px 10px;
-    border: none;
 }
 
-form{
+    .form-container button {
+        border-radius: 15px;
+        text-decoration: none;
+        background-color: #b9b0ac;
+        color: white;
+        padding: 15px 20px;
+        margin: 10px 10px;
+        border: none;
+    }
+
+    .form-container button:hover{
+        cursor: pointer;
+    }
+
+form {
     margin: 30px;
     padding: 20px;
 }
@@ -27,12 +30,22 @@ fieldset {
     min-width: 200px;
     display: flex;
     gap: 4rem;
+    background-color: #f2f2f2
+}
+
+fieldset select{
+    padding: 10px;
+    border-radius: 5px;
+    width: 220px;
 }
 
 legend {
     font-size: 1.25em;
     padding: 0 .25em;
     color: #999;
+}
+.form-control{
+    border-radius: 5px;
 }
 
 label {
@@ -67,6 +80,7 @@ textarea {
 .checks {
     margin-bottom: 1em;
     padding-top: 20px;
+    margin-top: 20px;
 }
 
     .checks p {
@@ -107,4 +121,44 @@ input[type=radio]:first-of-type {
         margin-top: 0;
         margin-right: .5em;
     }
+}
+
+.order-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    width: min(95%, 70rem);
+    margin-inline: auto;
+    margin: 20px;
+    padding: 30px;
+}
+
+
+.order.button{
+    display: flex;
+    justify-content: space-around;
+}
+
+    .order.button a {
+        border-radius: 15px;
+        text-decoration: none;
+        background-color: #b9b0ac;
+        color: white;
+        padding: 15px 20px;
+        margin: 10px 10px;
+        border: none;
+    }
+
+
+
+/*.order:nth-child(6) {
+    grid-row-start: 4;
+    grid-column: span 2;
+}*/
+
+.order:nth-child(5) {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
